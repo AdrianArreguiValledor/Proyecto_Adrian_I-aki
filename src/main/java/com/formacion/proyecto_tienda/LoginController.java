@@ -75,6 +75,7 @@ public class LoginController {
 
 
 	            
+	            
 	            // Crear pedido y guardarlo en la base de datos
 	            Pedido nuevoPedido = new Pedido(cantidad, fecha_pedido, fecha_entrega, id_user, id_producto);
 	            cad.crearPedido(nuevoPedido);

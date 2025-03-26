@@ -24,6 +24,7 @@
 	
 	<br>
 	    
+	
 	    <%-- Botón para ir a pedido.jsp --%>
 	    <form action="pedido" method="get">
 	        <button type="submit">Ir a Hacer Pedido</button>

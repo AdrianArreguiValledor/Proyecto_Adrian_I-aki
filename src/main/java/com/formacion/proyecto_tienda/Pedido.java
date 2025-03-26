@@ -28,6 +28,7 @@ public class Pedido {
 
 	
 	
+	
 
 	public int getId_producto() {
 		return id_producto;

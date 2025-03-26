@@ -29,6 +29,7 @@
             }
             return true; // Permitir que el formulario se envíe
         }
+		
     </script>
 </head>
 <body>
