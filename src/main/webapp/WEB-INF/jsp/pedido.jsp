@@ -12,7 +12,8 @@
             var yyyy = today.getFullYear();
 
             today = yyyy + '-' + mm + '-' + dd; // Formato YYYY-MM-DD
-
+ 
+			
             // Establecer el atributo 'min' en los campos de fecha
             document.getElementById("fecha_pedido").setAttribute("min", today);
             document.getElementById("fecha_entrega").setAttribute("min", today);
