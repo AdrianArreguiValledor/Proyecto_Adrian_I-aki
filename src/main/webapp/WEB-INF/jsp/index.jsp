@@ -3,32 +3,28 @@
 <html>
 <head>
     <title>login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h2>Iniciar Sesión</h2>
-    
-    <%-- Muestra un mensaje de error si existe --%>
-    <% if (request.getAttribute("error") != null) { %>
-        <p style="color: red;"><%= request.getAttribute("error") %></p>
-    <% } %>
- 
-    <form action="login" method="post">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
- 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required><br><br>
- 
-        <button type="submit">Ingresar</button>
-    </form>
-	
-	<br>
+	<div class="container">
+	    <h2>INICIAR SESIÓN</h2>
 	    
-	
-	    <%-- Botón para ir a pedido.jsp --%>
-	    <form action="pedido" method="get">
-	        <button type="submit">Ir a Hacer Pedido</button>
+	    <form id="login-form" action="login" method="post">
+	        <label for="email">Email:</label>
+	        <input type="email" id="email" name="email" required=""><br><br>
+
+	        <label for="password">Contraseña:</label>
+	        <input type="password" id="password" name="password" required=""><br><br>
+
+	        <button type="submit">Ingresar</button>
 	    </form>
-</body>
-</html>
+
+	    <!-- Botón para ir a hacer pedido -->
+	    <form action="pedido" method="get">
+	        <button type="submit" class="pedido-btn">Ir a Hacer Pedido</button>
+	    </form>
+	</div>
+
+	</body>
+	</html>
  

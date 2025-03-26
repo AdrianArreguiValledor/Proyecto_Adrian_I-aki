@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Hacer Pedido</title>
+	<link rel="stylesheet" type="text/css" href="style2.css">
+	
     <script type="text/javascript">
         // Función que establece la fecha mínima del campo de fecha como la fecha actual
         window.onload = function() {
@@ -34,42 +36,48 @@
     </script>
 </head>
 <body>
-    <h2>Hacer Pedido</h2>
+	  <div class="container">
+	        <h2>HACER PEDIDO</h2>
 
-    <%-- Mostrar mensajes de éxito o error --%>
-    <% if (request.getAttribute("mensaje") != null) { %>
-        <p style="color: green;"><%= request.getAttribute("mensaje") %></p>
-    <% } %>
-    
-    <% if (request.getAttribute("error") != null) { %>
-        <p style="color: red;"><%= request.getAttribute("error") %></p>
-    <% } %>
+	        <%-- Mostrar mensajes de éxito o error --%>
+	        <% if (request.getAttribute("mensaje") != null) { %>
+	            <p style="color: green;"><%= request.getAttribute("mensaje") %></p>
+	        <% } %>
+	        
+	        <% if (request.getAttribute("error") != null) { %>
+	            <p style="color: red;"><%= request.getAttribute("error") %></p>
+	        <% } %>
 
-    <form action="crearPedido" method="post" onsubmit="return validarFormulario()">
+	        <form action="crearPedido" method="post" onsubmit="return validarFormulario()">
 
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" required min="0"><br><br>
+	            <label for="cantidad">Cantidad:</label>
+	            <input type="number" id="cantidad" name="cantidad" required min="0"><br><br>
 
-        <label for="fecha_pedido">Fecha de Pedido:</label>
-        <input type="date" id="fecha_pedido" name="fecha_pedido" required><br><br>
+	            <label for="fecha_pedido">Fecha de Pedido:</label>
+	            <input type="date" id="fecha_pedido" name="fecha_pedido" required><br><br>
 
-        <label for="fecha_entrega">Fecha de Entrega:</label>
-        <input type="date" id="fecha_entrega" name="fecha_entrega" required><br><br>
-		
-		<label for="id_user">Usuario:</label>
-		<input type="number" id="id_user" name="id_user" required min="0"><br><br>
-				
-				
-		<label for="id_producto">Producto:</label>
-		    <select id="id_producto" name="id_producto" required>
-		        <option value="3">Periféricos</option>
-		        <option value="2">Ordenador</option>
-		        <option value="1">Portátil</option>
-		    </select><br><br>
-		
-	
+	            <label for="fecha_entrega">Fecha de Entrega:</label>
+	            <input type="date" id="fecha_entrega" name="fecha_entrega" required><br><br>
+	            
+	            <label for="id_user">Usuario:</label>
+	            <input type="number" id="id_user" name="id_user" required min="0"><br><br>
 
-        <button type="submit">Realizar Pedido</button>
-    </form>
-</body>
+	            <label for="id_producto">Producto:</label>
+	            <select id="id_producto" name="id_producto" required>
+	                <option value="3">Periféricos</option>
+	                <option value="2">Ordenador</option>
+	                <option value="1">Portátil</option>
+	            </select><br><br>
+
+	            <button type="submit">Realizar Pedido</button>
+	        </form>
+			
+			<br>
+			
+			<!-- Botón para volver -->
+			    <form action="index.jsp" method="get">
+			        <button type="submit">Volver</button>
+			    </form>
+	    </div>
+	</body>
 </html>
