@@ -23,6 +23,7 @@ public class Cad {
 	
 	
 	
+	
 	public void crearPedido(Pedido pedido) throws SQLException {
 		//Query SQL.
 		String sql = "INSERT INTO Pedido (cantidad, fecha_pedido, fecha_entrega, id_user, id_producto) VALUES (?, ?, ?, ?, ?)";

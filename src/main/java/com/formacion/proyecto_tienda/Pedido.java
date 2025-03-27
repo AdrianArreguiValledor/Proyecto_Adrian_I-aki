@@ -35,6 +35,7 @@ public class Pedido {
 	}
 
 
+	
 	public void setId_producto(int id_producto) {
 		this.id_producto = id_producto;
 	}

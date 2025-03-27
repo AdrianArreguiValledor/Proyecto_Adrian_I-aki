@@ -95,6 +95,7 @@ button[type="submit"]:last-child:hover {
 }
 
 
+
 /* Estilo para el botón "Volver" */
 form[action="pedidvolver"] button[type="submit"] {
     background-color: red; /* Fondo rojo */

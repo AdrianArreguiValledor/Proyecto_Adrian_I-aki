@@ -74,6 +74,7 @@
 			
 			<br>
 			
+			
 			<!-- Botón para volver -->
 			    <form action="index.jsp" method="get">
 			        <button type="submit">Volver</button>
