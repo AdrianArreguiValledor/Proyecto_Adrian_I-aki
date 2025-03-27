@@ -60,6 +60,7 @@ public class LoginController {
 	        return "pedido"; // Redirige a pedido.jsp
 	    }
 	    
+	    
 	    @PostMapping("/crearPedido")
 	    public String crearPedido(@RequestParam int cantidad,
 	                              @RequestParam() Date fecha_pedido,
