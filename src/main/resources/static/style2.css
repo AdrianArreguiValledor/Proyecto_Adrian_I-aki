@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: lightgray; /* Fondo claro */
+      background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
     margin: 0;
     padding: 0;
     display: flex;
@@ -20,6 +20,41 @@ body {
     max-width: 600px; /* Establece un ancho máximo para el formulario */
 }
 
+
+/* Contenedor del campo de contraseña */
+.password-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;  /* Centra el icono y el input verticalmente */
+}
+
+/* Estilo del campo de contraseña */
+.password-container input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;  /* Aumentamos el padding a la derecha para el icono */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 50px;  /* Aumenta la altura del input */
+    line-height: 24px;  /* Alinea el texto dentro del input */
+}
+
+/* Estilo del icono del ojo */
+.toggle-password {
+    position: absolute;
+    right: 12px;  /* Ajustamos un poco el espacio a la derecha */
+    font-size: 20px;  /* Puedes cambiar el tamaño si deseas que el icono sea más grande */
+    color: #555;
+    cursor: pointer;
+    top: 50%;  /* Centra el icono verticalmente */
+    transform: translateY(-50%);  /* Ajuste fino para centrarlo perfectamente */
+    user-select: none;  /* Evita que el texto sea seleccionable */
+}
+
+
+
 h2 {
     color: #333;
     text-align: center;
@@ -32,12 +67,23 @@ form {
     margin-top: 20px;
 }
 
+/* Etiquetas */
 label {
-    display: block;
-    font-size: 16px;
+    display: flex;
+    align-items: center; /* Alinea la imagen y el texto */
+    font-size: 18px; /* Aumentado el tamaño de letra */
     margin-bottom: 8px;
     color: #555;
+    font-weight: bold;
 }
+
+/* Ajuste de las imágenes dentro de las etiquetas */
+label img {
+    width: 34px; /* Ajusta el tamaño de las imágenes */
+    height: 28px;
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
 
 input[type="text"],
 input[type="email"],
@@ -106,6 +152,41 @@ form {
     max-width: 450px;
     margin: 0 auto;
 }
+
+
+/* Estilo para el campo de selección de rol */
+select#rol {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff; /* Fondo blanco para el select */
+    box-sizing: border-box;
+    cursor: pointer; /* Muestra el cursor de "manito" para indicar que es un campo seleccionable */
+}
+
+/* Cambiar color cuando el select es seleccionado */
+select#rol:focus {
+    border-color: #4CAF50; /* Color verde cuando el select está en foco */
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+}
+
+/* Estilo para las opciones dentro del select */
+select#rol option {
+    padding: 10px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Resaltar las opciones al pasar el ratón por encima */
+select#rol option:hover {
+    background-color: #f2f2f2; /* Color gris claro al pasar el ratón */
+}
+
+
 
 /* Opcional: Asegura que los inputs tengan un buen espaciado */
 input[type="text"],

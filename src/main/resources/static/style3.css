@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Fondo suave fuera del contenedor */
+     background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,7 +14,7 @@ body {
 
 /* Contenedor principal */
 .container {
-    background-color: #000; /* Fondo negro */
+    background-color: rgb(85, 85, 85); /* Fondo negro */
     color: #fff; /* Texto en blanco */
     padding: 40px; /* Espacio alrededor del contenido */
     border-radius: 10px; /* Bordes redondeados */
@@ -51,6 +51,25 @@ h1 {
 .volver-btn:hover {
     background-color: #0056b3; /* Cambia el color a un tono más oscuro al pasar el ratón */
 }
+
+
+
+/* Estilo para el botón de administrador */
+.administrador-btn {
+    background-color: red; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado alrededor del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Aparece como puntero */
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.administrador-btn:hover {
+    background-color: rgb(193, 2, 46); /* Tono rojo más oscuro al pasar el ratón */
+}
+
 
 
 

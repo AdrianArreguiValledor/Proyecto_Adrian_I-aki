@@ -19,6 +19,7 @@ public class Usuario {
     private String email; // Contraseña
     private String contrasena;     // Rol del usuario
     private String apellido; //apellido
+    private String rol;     // Rol del usuario
 
 
 }
