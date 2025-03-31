@@ -115,6 +115,7 @@ public class LoginController {
         return source.equalsIgnoreCase("registro") ? "registro" : "index"; // Redirige a la vista correspondiente
     }
 
+    
     /**
      * Esta ruta es la principal y muestra la vista principal.jsp.
      */
