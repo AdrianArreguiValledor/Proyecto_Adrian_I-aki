@@ -71,28 +71,45 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-/* Hover para el botón de "Ingresar" */
+
+/* Hover para el botón de "Iniciar Sesion" */
 button[type="submit"]:hover {
     background-color: #45a049;
 }
 
-/* Estilo para el botón "Ir a Hacer Pedido" */
-button[type="submit"].pedido-btn {
-    background-color: rgb(221, 34, 34); /* Asegura que el botón sea rojo */
-    margin-top: 10px;
-    width: 100%; /* Asegura que el botón se quede dentro del ancho del contenedor */
+
+
+
+
+/* Estilo para el botón "Registrarse" */
+button.registro-btn {
+    background-color: rgb(221, 34, 34); /* Color rojo */
+    width: 100%;
     padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-button[type="submit"].pedido-btn:hover {
+button.registro-btn:hover {
     background-color: darkred;
 }
+
 
 /* Estilo para los mensajes de error */
 .error {
     color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* Estilo para exito */
+.mensaje {
+    color: green;
     font-size: 14px;
     text-align: center;
 }
