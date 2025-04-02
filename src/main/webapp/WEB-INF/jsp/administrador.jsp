@@ -1,28 +1,26 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Administrador</title>
+    <title>Panel de Administrador</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="container">
-		
-		<!-- Imagen de administrador -->
-		<img src="imagenes/administrador.png" alt="administrador" class="administrador">
-				
-				
-				
         <h2>Panel de Administrador</h2>
 
-        <!-- Mostrar el nombre del usuario -->
         <p class="usuario"><strong>Usuario:</strong> ${usuario}</p>
-
-        <!-- Mostrar el mensaje -->
         <p>${mensaje}</p>
+        <br>
 
-        <!-- Enlace para redirigir a la página principal -->
+        <!-- Botón para ver productos -->
+        <form action="/administrador/prueba" method="get">
+            <button type="submit" class="btn-ver-productos">Ver Productos</button>
+        </form>
+
         <form action="/principal" method="get">
-            <button type="submit" class="principal-btn">Volver atras</button>
+            <button type="submit" class="btn-volver">Volver atrás</button>
         </form>
     </div>
 </body>
