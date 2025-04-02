@@ -49,6 +49,7 @@ h1 {
 .volver-btn {
     background-color: #007BFF; /* Fondo azul */
     color: white; /* Texto blanco */
+	font-weight: bold;
     padding: 10px 20px; /* Espaciado alrededor del texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -66,6 +67,7 @@ h1 {
 /* Estilo para el botón de administrador */
 .administrador-btn {
     background-color: red; /* Fondo rojo */
+	font-weight: bold;
     color: white; /* Texto blanco */
     padding: 10px 20px; /* Espaciado alrededor del texto */
     border: none; /* Sin borde */

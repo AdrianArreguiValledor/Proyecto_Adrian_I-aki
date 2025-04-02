@@ -21,6 +21,25 @@ body {
 }
 
 
+#password-status {
+    font-size: 18px; /* Letra grande */
+    font-weight: bold; /* Negrita */
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Cuando la contraseña esté visible */
+.password-visible {
+    color: green;
+}
+
+/* Cuando la contraseña esté oculta */
+.password-hidden {
+    color: red;
+}
+
+
+
 /* Contenedor del campo de contraseña */
 .password-container {
     position: relative;
@@ -103,6 +122,7 @@ button.registro-btn {
     padding: 12px;
     background-color: #4CAF50; /* Color verde */
     color: white;
+	font-weight: bold;
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -120,6 +140,7 @@ button.volver-btn {
     width: 100%;
     padding: 12px;
     border: none;
+	font-weight: bold;
     border-radius: 4px;
     font-size: 16px;
     color: white;

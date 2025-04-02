@@ -70,18 +70,21 @@
     </div>
 	
 	<script>
-	        function togglePassword() {
-	            var passwordField = document.getElementById("contrasena");
-	            var passwordStatus = document.getElementById("password-status");  // Contenedor del mensaje
+		function togglePassword() {
+		    var passwordField = document.getElementById("contrasena");
+		    var passwordStatus = document.getElementById("password-status");
 
-	            if (passwordField.type === "password") {
-	                passwordField.type = "text";  // Mostrar la contraseña
-	                passwordStatus.textContent = "Contraseña visible";  // Cambiar el mensaje
-	            } else {
-	                passwordField.type = "password";  // Ocultar la contraseña
-	                passwordStatus.textContent = "Contraseña oculta";  // Cambiar el mensaje
-	            }
-	        }
+		    if (passwordField.type === "password") {
+		        passwordField.type = "text";  
+		        passwordStatus.textContent = "Contraseña visible";
+		        passwordStatus.className = "password-visible"; // Aplicar estilo verde
+		    } else {
+		        passwordField.type = "password";
+		        passwordStatus.textContent = "Contraseña oculta";
+		        passwordStatus.className = "password-hidden"; // Aplicar estilo rojo
+		    }
+		}
+		
 	</script>
 </body>
 </html>

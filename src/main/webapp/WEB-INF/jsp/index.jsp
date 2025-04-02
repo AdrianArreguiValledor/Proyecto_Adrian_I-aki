@@ -51,7 +51,7 @@
             <button type="submit" class="registro-btn">Registrarse</button>
         </form>
     </div>
-
+	
     <script>
         function togglePassword() {
             var passwordField = document.getElementById("contrasena");
@@ -60,11 +60,15 @@
             if (passwordField.type === "password") {
                 passwordField.type = "text";  // Mostrar la contraseña
                 passwordStatus.textContent = "Contraseña visible";  // Cambiar el mensaje
+				passwordStatus.className = "password-visible"; // Aplicar estilo verde
             } else {
                 passwordField.type = "password";  // Ocultar la contraseña
                 passwordStatus.textContent = "Contraseña oculta";  // Cambiar el mensaje
-            }
+				passwordStatus.className = "password-hidden"; // Aplicar estilo rojo
+			}
         }
+		
+				
     </script>
 </body>
 </html>

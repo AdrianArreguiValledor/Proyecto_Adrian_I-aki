@@ -8,7 +8,7 @@
         /* Estilos CSS similares a los de la lista de productos */
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f9;
+             background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
             color: #333;
             line-height: 1.6;
             padding: 20px;
@@ -39,6 +39,7 @@
         }
 
         label {
+			font-weight:bold;
             font-size: 1.1rem;
         }
 
@@ -53,6 +54,7 @@
             background-color: #4CAF50;
             color: white;
             padding: 10px;
+			font-weight:bold;
             border: none;
             cursor: pointer;
             border-radius: 5px;
@@ -64,10 +66,25 @@
             background-color: #45a049;
         }
 
-        .back-button {
-            text-align: center;
-            margin-top: 20px;
-        }
+		
+		/* Estilo para el botón "Volver a la lista de productos" */
+		button.btn-volver {
+		    background-color: #f44336; /* Rojo */
+		    color: white;
+		    padding: 10px;
+		    font-weight: bold;
+		    border: none;
+		    cursor: pointer;
+		    border-radius: 5px;
+		    font-size: 1rem;
+		    transition: background-color 0.3s ease;
+		    width: 100%;
+		}
+
+		button.btn-volver:hover {
+		    background-color: #c62828; /* Rojo más oscuro en hover */
+		}
+		
     </style>
 </head>
 <body>
@@ -81,6 +98,8 @@
             </div>
         </c:if>
 
+		<br>
+		
         <!-- Formulario para editar el producto -->
         <form action="/actualizarProducto" method="post">
             <input type="hidden" name="id_producto" value="${producto.id_producto}" />
@@ -88,15 +107,19 @@
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" value="${producto.nombre}" required />
 
+			
             <label for="descripcion">Descripción:</label>
             <input type="text" id="descripcion" name="descripcion" value="${producto.descripcion}" required />
 
-            <label for="precio">Precio:</label>
-            <input type="number" id="precio" name="precio" step="0.01" value="${producto.precio}" required />
+			
+			<label for="precio">Precio:</label>
+			<input type="number" id="precio" name="precio" step="0.01" value="${producto.precio}" min="0" required />
 
-            <label for="stock">Stock:</label>
-            <input type="number" id="stock" name="stock" value="${producto.stock}" required />
+			<label for="stock">Stock:</label>
+			<input type="number" id="stock" name="stock" value="${producto.stock}" min="0" required />
 
+
+			
             <label for="categoria">Categoría:</label>
             <select id="categoria" name="categoria" required>
                 <option value="portatil" ${producto.categoria == 'portatil' ? 'selected' : ''}>Portátil</option>
@@ -104,15 +127,20 @@
                 <option value="periferico" ${producto.categoria == 'periferico' ? 'selected' : ''}>Periférico</option>
             </select>
 
+			<br>
+			
             <button type="submit">Actualizar Producto</button>
         </form>
 
+		<br>
+		
         <!-- Botón para volver a la lista de productos -->
-        <div class="back-button">
-            <form action="/administrador/prueba" method="get">
-                <button type="submit">Volver a la lista de productos</button>
-            </form>
-        </div>
+		<!-- Botón para volver a la lista de productos -->
+		<div class="back-button">
+		    <form action="/administrador/prueba" method="get">
+		        <button type="submit" class="btn-volver">Volver a la lista de productos</button>
+		    </form>
+		</div>
     </div>
 </body>
 </html>
