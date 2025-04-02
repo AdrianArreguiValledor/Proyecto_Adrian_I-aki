@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.formacion.entities.Producto;
 import com.formacion.entities.Usuario;
+import com.formacion.service.ApiService;
 import com.formacion.service.ProductoService;
 import com.formacion.service.UserService;
 
@@ -26,6 +27,10 @@ public class LoginController {
 
 
 	  
+	@Autowired
+	private ApiService apiService;  // Inyectamos el servicio ApiService
+
+	 
     @Autowired
     private UserService userService;
 
