@@ -1,14 +1,14 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
+	font-family: Arial, sans-serif;
+	    background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
+	    margin: 0;
+	    padding: 0;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: 100vh;
+	    text-align: center;
 }
 
 .producto-info {
@@ -21,13 +21,50 @@ body {
 
 /* Contenedor principal */
 .container {
-    background-color: white;
-    padding: 100px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	display: flex; /* Coloca los elementos en fila */
+	   justify-content: center; /* Centra ambos elementos */
+	   align-items: center; /* Centra verticalmente */
+	   background-color: white;
+	   padding: 30px;
+	   border-radius: 8px;
+	   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	   width: 100%;
+	   max-width: 900px; /* Aumenta el ancho del contenedor */
+	   margin: 0 auto;
+}
+
+
+/* Estilo para el contenedor del formulario */
+.form-container {
+    flex: 1; /* El formulario ocupa el 50% del espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Imagen de la tienda */
+.tienda-container {
+    flex: 1; /* La imagen ocupa el 50% del espacio disponible */
+    display: flex;
+    justify-content: center;
+	margin-left: 70px;
+}
+
+.tienda-imagen {
+    width: 500px;
+	height: 550px;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    max-width: 650px; /* Limita el tamaño máximo de la imagen */
+}
+
+/* Estilo para el formulario */
+form {
     width: 100%;
-    max-width: 500px; /* Establece un ancho máximo para el contenedor */
+    max-width: 350px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 
@@ -83,12 +120,28 @@ body {
 }
 
 
+/* Añadimos estilo para el enlace de registro */
+.registro-texto {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.registro-texto a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registro-texto a:hover {
+    text-decoration: underline;
+}
 
 
 
 /* Título */
 h2 {
-    color: #333;
+    color: red;
+	font-weight: bold;
     text-align: center;
     margin-bottom: 20px; /* Espacio entre el título y el formulario */
 }

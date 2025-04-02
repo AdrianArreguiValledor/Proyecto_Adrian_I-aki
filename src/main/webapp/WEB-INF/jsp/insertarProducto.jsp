@@ -52,6 +52,7 @@
         button {
             background-color: #4CAF50;
             color: white;
+			font-weight:bold;
             padding: 10px;
             border: none;
             cursor: pointer;
@@ -62,6 +63,17 @@
 
         button:hover {
             background-color: #45a049;
+        }
+
+        /* Estilo para el botón "Volver a la lista de productos" */
+        .back-button button {
+            background-color: #007BFF; /* Color solicitado */
+            color: white;
+			font-weight:bold;
+        }
+
+        .back-button button:hover {
+            background-color: #0056b3; /* Color al pasar el ratón */
         }
 
         .back-button {
@@ -101,10 +113,13 @@
                 <option value="ordenador">Ordenador</option>
                 <option value="periferico">Periférico</option>
             </select>
-
+			
+			<br>
+			
             <button type="submit">Guardar Producto</button>
         </form>
-
+			
+		<br>
         <!-- Botón para volver a la lista de productos -->
         <div class="back-button">
             <form action="/administrador/prueba" method="get">

@@ -75,7 +75,7 @@
 		    var passwordStatus = document.getElementById("password-status");
 
 		    if (passwordField.type === "password") {
-		        passwordField.type = "text";  
+		        passwordField.type = "text";
 		        passwordStatus.textContent = "Contraseña visible";
 		        passwordStatus.className = "password-visible"; // Aplicar estilo verde
 		    } else {

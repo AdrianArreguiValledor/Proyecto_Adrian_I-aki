@@ -125,7 +125,7 @@
 
 	    /* Botón Volver */
 	    .btn-volver {
-	        background-color: #f44336;
+	        background-color: #007BFF;
 	        color: white;
 			font-weight:bold;
 	        padding: 10px 20px;
@@ -137,7 +137,7 @@
 	    }
 
 	    .btn-volver:hover {
-	        background-color: #c62828;
+	        background-color: darkblue;
 	    }
 
 		
@@ -157,7 +157,7 @@
 		}
 
 		.insert-button:hover {
-		    background-color: #0056b3; /* Azul más oscuro */
+		    background-color: darkblue; /* Azul más oscuro */
 		}
 
 		.insertar-icon {
