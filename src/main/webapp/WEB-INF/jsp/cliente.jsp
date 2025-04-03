@@ -19,6 +19,7 @@
             color: #333;
             line-height: 1.6;
             padding: 20px;
+            animation: fadeIn 1s ease-out;
         }
 
         /* Contenedor principal */
@@ -29,6 +30,8 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
         }
 
         /* Título */
@@ -41,11 +44,44 @@
             padding-bottom: 10px;
         }
 
+        /* Animación de FadeIn */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animación de SlideIn */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animación para la tabla */
+        @keyframes tableFadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         /* Tabla de clientes */
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            animation: tableFadeIn 1s ease-out;
         }
 
         table th, table td {
@@ -83,7 +119,7 @@
             font-weight: bold;
             text-align: center;
             display: inline-block;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .edit-button {
@@ -93,6 +129,7 @@
 
         .edit-button:hover {
             background-color: #45a049;
+            transform: scale(1.05); /* Efecto de escala al pasar el ratón */
         }
 
         .delete-button {
@@ -102,6 +139,7 @@
 
         .delete-button:hover {
             background-color: #c62828;
+            transform: scale(1.05); /* Efecto de escala al pasar el ratón */
         }
 
         .insert-button {
@@ -116,6 +154,7 @@
 
         .insert-button:hover {
             background-color: darkblue;
+            transform: scale(1.05); /* Efecto de escala al pasar el ratón */
         }
 
         .btn-volver {
@@ -129,7 +168,9 @@
 
         .btn-volver:hover {
             background-color: darkblue;
+            transform: scale(1.05); /* Efecto de escala al pasar el ratón */
         }
+
     </style>
 
     <script>
@@ -145,9 +186,9 @@
         <h2>Lista de Clientes</h2>
 
         <!-- Botón Insertar Cliente -->
-		<form action="/insertar" method="get">
-			<button type="submit" class="insert-button">Insertar Cliente</button>
-		</form>
+        <form action="/insertar" method="get">
+            <button type="submit" class="insert-button">Insertar Cliente</button>
+        </form>
 
         <c:choose>
             <c:when test="${not empty usuarios}">
@@ -189,9 +230,9 @@
         </c:choose>
 
         <!-- Botón de volver -->
-		<form action="/principal" method="get">
-			<button type="submit" class="btn-volver">Volver Atras</button>
-		</form>
+        <form action="/administrador" method="get">
+            <button type="submit" class="btn-volver">Volver Atras</button>
+        </form>
     </div>
 </body>
 </html>

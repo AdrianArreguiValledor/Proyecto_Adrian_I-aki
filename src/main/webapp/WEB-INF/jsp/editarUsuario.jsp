@@ -24,6 +24,8 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* Animación de entrada */
         }
 
         h1 {
@@ -53,6 +55,14 @@
             box-sizing: border-box;
             font-size: 16px;
             margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            transform: scale(1.02); /* Efecto de zoom al enfocar */
         }
 
         button {
@@ -66,10 +76,12 @@
             font-size: 16px;
             cursor: pointer;
             margin-top: 10px;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
         }
 
         button:hover {
             background-color: #45a049;
+            transform: scale(1.05); /* Efecto de zoom en el botón */
         }
 
         .back-button {
@@ -83,18 +95,76 @@
             color: white;
             cursor: pointer;
             margin-top: 10px;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
         }
 
         .back-button:hover {
             background-color: #0056b3;
+            transform: scale(1.05); /* Efecto de zoom en el botón de Volver */
         }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
     </style>
+
+    <script>
+        // Función para confirmar el envío del formulario
+        function confirmSubmit() {
+            var result = confirm("¿Está seguro de que desea actualizar la información?");
+            if (result) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // Validación de formulario
+        function validateForm() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var age = document.getElementById("age").value;
+            var gender = document.getElementById("gender").value;
+            var role = document.getElementById("role").value;
+
+            if (firstName == "" || lastName == "" || email == "" || phone == "" || age == "" || gender == "" || role == "") {
+                alert("Todos los campos son obligatorios.");
+                return false; // Evita el envío si hay campos vacíos
+            }
+
+            // Validación del formato de correo electrónico
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Por favor ingrese un correo electrónico válido.");
+                return false;
+            }
+
+            // Validación de teléfono (solo números)
+            var phonePattern = /^[0-9]+$/;
+            if (!phonePattern.test(phone)) {
+                alert("El teléfono solo debe contener números.");
+                return false;
+            }
+
+            return true; // El formulario puede enviarse si pasa todas las validaciones
+        }
+    </script>
 </head>
+
 <body>
     <div class="form-container">
         <h1>Editar Usuario</h1>
 
-        <form action="/actualizar/${usuario.id}" method="post">
+        <form action="/actualizar/${usuario.id}" method="post" onsubmit="return validateForm()">
             <label for="firstName">Nombre:</label>
             <input type="text" id="firstName" name="firstName" value="${usuario.firstName}" required>
 
@@ -122,16 +192,16 @@
                 <option value="Admin" <c:if test="${usuario.role == 'Admin'}">selected</c:if>>Admin</option>
                 <option value="Usuario" <c:if test="${usuario.role == 'Usuario'}">selected</c:if>>Usuario</option>
             </select>
-			<br><br>
-			
-            <button type="submit">Actualizar Usuario</button>
+            <br><br>
+            
+            <button type="submit" onclick="return confirmSubmit()">Actualizar Usuario</button>
         </form>
-		<br><br>
-		
-		<form action="/cliente" method="get">
-			<button type="submit" class="back-button">Volver Atras</button>
-		</form>
-		
+        <br><br>
+        
+        <form action="/cliente" method="get">
+            <button type="submit" class="back-button">Volver Atras</button>
+        </form>
+        
     </div>
 </body>
 </html>

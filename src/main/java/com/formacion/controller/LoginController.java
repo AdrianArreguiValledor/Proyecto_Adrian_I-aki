@@ -32,21 +32,25 @@ public class LoginController {
 
 	 
     @Autowired
-    private UserService userService;
+    private UserService userService; // Servicio para la gestión de usuarios
 
     @Autowired
-    private ProductoService productoService;
+    private ProductoService productoService; // Servicio para la gestión de productos
     
     
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder; // Encriptador de contraseñas para la seguridad
     
+    
+ // Ruta principal de la aplicación, redirige a la página de login
     @GetMapping("/")
     public String inicio(Model model) {
         log.info("Arranca la app");
         return "index";  // Redirige a la página de login
     }
 
+    
+    // Otra ruta para la página de login ("/index"), redirige a la página de login
     @GetMapping("/index")
     public String inicioDesdeIndex(Model model) {
         log.info("Llamamos a index");
