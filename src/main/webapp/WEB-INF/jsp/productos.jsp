@@ -5,148 +5,166 @@
 <head>
     <title>Lista de Productos</title>
 	<style>
-	    /* Reset global */
-	    * {
-	        margin: 0;
-	        padding: 0;
-	        box-sizing: border-box;
-	    }
+		/* Reset global */
+		* {
+		    margin: 0;
+		    padding: 0;
+		    box-sizing: border-box;
+		}
 
-	    /* Fondo general */
-	    body {
-	        font-family: Arial, sans-serif;
-	        background: linear-gradient(to bottom, #003366, #66ccff);
-	        color: #333;
-	        line-height: 1.6;
-	        padding: 20px;
-	    }
+		/* Fondo general */
+		body {
+		    font-family: Arial, sans-serif;
+		    background: linear-gradient(to bottom, #003366, #66ccff);
+		    color: #333;
+		    line-height: 1.6;
+		    padding: 20px;
+		}
 
-	    /* Contenedor principal */
-	    .container {
-	        max-width: 1000px;
-	        margin: 0 auto;
-	        background-color: #fff;
-	        padding: 30px;
-	        border-radius: 8px;
-	        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-	    }
+		/* Contenedor principal */
+		.container {
+		    max-width: 1000px;
+		    margin: 0 auto;
+		    background-color: #fff;
+		    padding: 30px;
+		    border-radius: 8px;
+		    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		}
 
-	    /* Título */
-	    h2 {
-	        font-size: 2rem;
-	        color: #333;
-	        text-align: center;
-	        margin-bottom: 20px;
-	        border-bottom: 2px solid #4CAF50;
-	        padding-bottom: 10px;
-	    }
+		/* Título */
+		h2 {
+		    font-size: 2rem;
+		    color: #333;
+		    text-align: center;
+		    margin-bottom: 20px;
+		    border-bottom: 2px solid #4CAF50;
+		    padding-bottom: 10px;
+		}
 
-	    /* Tabla de productos */
-	    table {
-	        width: 100%;
-	        border-collapse: collapse;
-	        margin-bottom: 20px;
-	    }
+		/* Tabla de productos */
+		table {
+		    width: 100%;
+		    border-collapse: collapse;
+		    margin-bottom: 20px;
+		}
 
-	    table th, table td {
-	        padding: 12px;
-	        text-align: left;
-	        border-bottom: 1px solid #ddd;
-	    }
+		table th, table td {
+		    padding: 12px;
+		    text-align: left;
+		    border-bottom: 1px solid #ddd;
+		}
 
-	    table th {
-	        background-color: #4CAF50;
-	        color: white;
-	        font-weight: bold;
-	    }
+		table th {
+		    background-color: #4CAF50;
+		    color: white;
+		    font-weight: bold;
+		}
 
-	    table td {
-	        background-color: #f9f9f9;
-	    }
+		table td {
+		    background-color: #f9f9f9;
+		}
 
-	    table tr:nth-child(even) td {
-	        background-color: #f1f1f1;
-	    }
+		table tr:nth-child(even) td {
+		    background-color: #f1f1f1;
+		}
 
-	    /* Mensaje sin productos */
-	    p {
-	        text-align: center;
-	        font-size: 1.2rem;
-	        color: #888;
-	    }
+		/* Mensaje sin productos */
+		p {
+		    text-align: center;
+		    font-size: 1.2rem;
+		    color: #888;
+		}
 
-	    /* Contenedor de botones */
-	    .button-container {
-	        display: flex;
-	        gap: 10px;
-	    }
+		/* Contenedor de botones */
+		.button-container {
+		    display: flex;
+		    align-items: center;
+		    gap: 10px; /* Espacio entre los botones */
+		}
 
-	    /* Botón de Editar */
-	    .edit-button {
-	        background-color: #4CAF50;
-	        color: white;
-	        padding: 12px 20px;
-			font-weight:bold;
-	        border: none;
-	        cursor: pointer;
-	        border-radius: 5px;
-	        font-size: 1rem;
-	        transition: background-color 0.3s ease;
-	        display: flex;
-	        align-items: center;
-	        justify-content: center;
-	    }
+		/* Asegurar que el formulario de editar no altere la alineación */
+		.button-container form {
+		    display: flex;
+		    align-items: center;
+		}
 
-	    .edit-button:hover {
-	        background-color: #45a049;
-	    }
+		/* Botón de Editar */
+		.edit-button {
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 10px 20px;
+		    font-weight: bold;
+		    border: none;
+		    cursor: pointer;
+		    border-radius: 5px;
+		    font-size: 1rem;
+		    transition: background-color 0.3s ease;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    height: 40px; /* Igual altura */
+		}
 
-	    /* Botón de Borrar */
-	    .delete-button {
-	        background-color: #f44336;
-	        padding: 10px 20px;
-	        border: none;
-	        cursor: pointer;
-	        border-radius: 5px;
-	        transition: background-color 0.3s ease;
-	        display: flex;
-	        align-items: center;
-	        justify-content: center;
-	    }
+		/* Botón de Borrar */
+		.delete-button {
+		    background-color: #f44336;
+		    padding: 10px 20px;
+		    border: none;
+		    cursor: pointer;
+		    border-radius: 5px;
+		    transition: background-color 0.3s ease;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+			width:60px;
+		    height: 60px; /* Igual altura */
+		}
 
-	    .delete-button:hover {
-	        background-color: #c62828;
-	    }
+		/* Ajuste de tamaño del icono dentro del botón eliminar */
+		.delete-icon {
+		    width: 25px;
+		    height: 25px;
+		}
 
-	    .delete-icon {
-	        width: 20px; /* Tamaño del icono ajustado al botón */
-	        height: 20px;
-	    }
+		/* Asegurar que los botones estén alineados correctamente a la derecha */
+		.button-container button {
+		    display: inline-block;
+		}
 
-	    /* Botón Volver */
-	    .btn-volver {
-	        background-color: #007BFF;
-	        color: white;
-			font-weight:bold;
-	        padding: 10px 20px;
-	        border: none;
-	        cursor: pointer;
-	        border-radius: 5px;
-	        font-size: 1rem;
-	        transition: background-color 0.3s ease;
-	    }
+		/* Botón de eliminar */
+		.delete-button:hover {
+		    background-color: #c62828;
+		}
 
-	    .btn-volver:hover {
-	        background-color: darkblue;
-	    }
+		/* Botón de editar */
+		.edit-button:hover {
+		    background-color: #45a049;
+		}
 
-		
+		/* Botón Volver */
+		.btn-volver {
+		    background-color: #007BFF;
+		    color: white;
+		    font-weight: bold;
+		    padding: 10px 20px;
+		    border: none;
+		    cursor: pointer;
+		    border-radius: 5px;
+		    font-size: 1rem;
+		    transition: background-color 0.3s ease;
+		}
+
+		.btn-volver:hover {
+		    background-color: darkblue;
+		}
+
+		/* Botón para insertar un nuevo producto */
 		.insert-button {
 		    background-color: #233dff; /* Azul */
 		    color: white;
 		    padding: 10px 20px;
 		    border: none;
-			font-weight:bold;
+		    font-weight: bold;
 		    cursor: pointer;
 		    border-radius: 5px;
 		    font-size: 1rem;
@@ -161,42 +179,41 @@
 		}
 
 		.insertar-icon {
-		    width: 30px; 
-		    height: 25px; 
+		    width: 30px;
+		    height: 25px;
 		    margin-right: 10px; /* Espacio entre la imagen y el texto */
 		}
 
-		
-		
-	    /* Formulario de volver al panel */
-	    form {
-	        text-align: center;
-	        margin-top: 20px;
-	    }
+		/* Formulario de volver al panel */
+		form {
+		    text-align: center;
+		    margin-top: 20px;
+		}
 
-	    /* Responsividad */
-	    @media (max-width: 768px) {
-	        .container {
-	            padding: 20px;
-	        }
+		/* Responsividad */
+		@media (max-width: 768px) {
+		    .container {
+		        padding: 20px;
+		    }
 
-	        table th, table td {
-	            padding: 10px;
-	        }
+		    table th, table td {
+		        padding: 10px;
+		    }
 
-	        h2 {
-	            font-size: 1.5rem;
-	        }
+		    h2 {
+		        font-size: 1.5rem;
+		    }
 
-	        .button-container {
-	            flex-direction: column;
-	        }
+		    .button-container {
+		        flex-direction: column;
+		    }
 
-	        .edit-button, .delete-button {
-	            width: 100%;
-	            padding: 12px;
-	        }
-	    }
+		    .edit-button, .delete-button {
+		        width: 100%;
+		        padding: 12px;
+		    }
+		}
+
 	</style>
 
     <script>
@@ -253,9 +270,9 @@
                             <td>
                                 <div class="button-container">
                                     <!-- Botón de Editar Producto -->
-                                    <a href="/editarProducto/${producto.id_producto}">
-                                        <button class="edit-button">Editar</button>
-                                    </a>
+									<form action="/editarProducto/${producto.id_producto}" method="get">
+										<button type="submit" class="edit-button">Editar</button>
+									</form>
 
 									<!-- Botón de Borrar Producto -->
 									<button class="delete-button" onclick="confirmarBorrado(${producto.id_producto})">

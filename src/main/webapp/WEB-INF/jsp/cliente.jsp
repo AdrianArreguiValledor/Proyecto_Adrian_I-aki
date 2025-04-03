@@ -1,120 +1,197 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Clientes</title>
-    <link rel="stylesheet" type="text/css" href="style3.css">
+    <title>Lista de Clientes</title>
     <style>
-        /* Estilo para el contenedor de la tabla */
-        .table-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-        
-        /* Estilo para el título */
-        h1 {
-            background-color: white;
-            padding: 10px;
-            color: black;
-            text-align: center;
-         
+        /* Reset global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        /* Fondo general */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #003366, #66ccff);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título */
+        h2 {
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        /* Tabla de clientes */
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
-        th, td {
-            padding: 10px;
+        table th, table td {
+            padding: 12px;
             text-align: left;
-            border: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
         }
 
-        th {
-            background-color: #f4f4f4;
-        }
-
-        /* Estilo para el botón */
-        .back-button, .insert-button, .edit-button, .delete-button {
-            display: inline-block;
-            padding: 10px 15px;
-            margin: 10px;
-            text-align: center;
-            background-color: #007bff;
+        table th {
+            background-color: #4CAF50;
             color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
+            font-weight: bold;
         }
 
-        .back-button:hover, .insert-button:hover, .edit-button:hover, .delete-button:hover {
-            background-color: #0056b3;
+        table td {
+            background-color: #f9f9f9;
+        }
+
+        table tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        /* Botones */
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .edit-button, .delete-button, .insert-button, .btn-volver {
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .edit-button:hover {
+            background-color: #45a049;
         }
 
         .delete-button {
-            background-color: #e74c3c;
+            background-color: #f44336;
+            color: white;
         }
 
         .delete-button:hover {
-            background-color: #c0392b;
+            background-color: #c62828;
+        }
+
+        .insert-button {
+            background-color: #233dff;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .insert-button:hover {
+            background-color: darkblue;
+        }
+
+        .btn-volver {
+            background-color: #007BFF;
+            color: white;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-volver:hover {
+            background-color: darkblue;
         }
     </style>
+
+    <script>
+        function confirmarBorrado(userId) {
+            if (confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
+                window.location.href = "borrar/" + userId;
+            }
+        }
+    </script>
 </head>
 <body>
+    <div class="container">
+        <h2>Lista de Clientes</h2>
 
-    <div class="table-container">
-		<!-- Botón Insertar -->
-		<h1>Clientes</h1>
-		<br><br>
-		<a href="insertar" class="insert-button">Insertar Cliente</a>
-		<br><br>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Edad</th>
-                    <th>Genero</th>
-                    <th>Rol</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Iterar sobre los usuarios y mostrar sus datos -->
-                <c:forEach var="user" items="${usuarios}">
+        <!-- Botón Insertar Cliente -->
+		<form action="/insertar" method="get">
+			<button type="submit" class="insert-button">Insertar Cliente</button>
+		</form>
+
+        <c:choose>
+            <c:when test="${not empty usuarios}">
+                <table>
                     <tr>
-                        <td>${user.firstName} ${user.lastName}</td>
-                        <td>${user.lastName}</td>
-                        <td>${user.email}</td>
-                        <td>${user.phone}</td>
-                        <td>${user.age}</td>
-                        <td>${user.gender}</td>
-                        <td>${user.role}</td>
-                        <td>
-                            <!-- Botón Editar -->
-                            <a href="editar/${user.id}" class="edit-button">Editar</a>
-
-                            <!-- Botón Borrar con confirmación -->
-                            <a href="borrar/${user.id}" class="delete-button" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">Borrar</a>
-                        </td>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Edad</th>
+                        <th>Género</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
                     </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-      
-        <br><br>
-        <!-- Botón de volver atrás -->
-        <a href="principal" class="back-button">Volver atras</a>
-    </div>
+                    <c:forEach var="user" items="${usuarios}">
+                        <tr>
+                            <td>${user.firstName}</td>
+                            <td>${user.lastName}</td>
+                            <td>${user.email}</td>
+                            <td>${user.phone}</td>
+                            <td>${user.age}</td>
+                            <td>${user.gender}</td>
+                            <td>${user.role}</td>
+                            <td>
+                                <div class="button-container">
+                                    <a href="editar/${user.id}">
+                                        <button class="edit-button">Editar</button>
+                                    </a>
+                                    <button class="delete-button" onclick="confirmarBorrado(${user.id})">Borrar</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </c:when>
+            <c:otherwise>
+                <p>No hay clientes registrados.</p>
+            </c:otherwise>
+        </c:choose>
 
+        <!-- Botón de volver -->
+		<form action="/principal" method="get">
+			<button type="submit" class="btn-volver">Volver Atras</button>
+		</form>
+    </div>
 </body>
 </html>

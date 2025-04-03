@@ -8,7 +8,7 @@
         /* Estilos similares al formulario de edición */
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f9;
+            background: linear-gradient(to bottom, #003366, #66ccff);
             color: #333;
             line-height: 1.6;
             padding: 20px;

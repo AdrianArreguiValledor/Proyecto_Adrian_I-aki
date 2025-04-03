@@ -7,105 +7,97 @@
     <style>
         /* Estilo general de la página */
         body {
-            font-family: Arial, sans-serif;
-              background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #004080, #66ccff); /* Azul degradado */
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        /* Estilo para el contenedor del formulario */
+        /* Contenedor del formulario */
         .form-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 60%;
-            margin: 50px auto;
-        }
-
-        /* Estilo para el título dentro del formulario */
-        .form-container h1 {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            max-width: 500px;
             text-align: center;
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 30px;
         }
 
-        /* Estilo de los campos de entrada */
+        /* Título del formulario */
+        .form-container h1 {
+            color: #003366;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Campos de entrada y select */
         .form-container input, .form-container select {
             width: 100%;
             padding: 12px;
             margin: 10px 0;
             border-radius: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             font-size: 16px;
             box-sizing: border-box;
         }
 
-        /* Estilo para los botones */
+        /* Estilo para el botón de Guardar Usuario */
         .form-container button {
-            padding: 12px 25px;
-            background-color: #007bff;
+            padding: 12px;
+            background-color: #28a745; /* Verde */
             color: white;
             font-size: 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: 0.3s ease;
             width: 100%;
         }
 
-        /* Efecto hover para el botón */
         .form-container button:hover {
+            background-color: #218838;
+        }
+
+        /* Botón de Volver */
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            text-align: center;
+            background-color: #007bff; /* Azul */
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
             background-color: #0056b3;
         }
 
-		/* Estilo para el botón de volver atrás */
-		       .back-button {
-		           display: block;
-		           width: 150px;
-		           padding: 10px;
-		           margin: 20px auto;
-		           text-align: center;
-		           background-color: #6c757d;
-		           color: white;
-		           border: none;
-		           border-radius: 5px;
-		           font-size: 16px;
-		           cursor: pointer;
-		           text-decoration: none;
-		           transition: background-color 0.3s ease;
-		       }
-
-		       /* Efecto hover para el botón de volver atrás */
-		       .back-button:hover {
-		           background-color: #5a6268;
-		       }
-			   
-        /* Estilo para las etiquetas */
+        /* Etiquetas */
         .form-container label {
             font-size: 16px;
-            font-weight: 500;
-			font-weight:bold;
+            font-weight: bold;
             color: #333;
             display: block;
-            margin-bottom: 8px;
+            margin-top: 15px;
+            text-align: left;
         }
-
-        /* Espaciado para los campos */
-        .form-container input, .form-container select {
-            margin-bottom: 15px;
-        }
-		
-	
-		
     </style>
 </head>
 <body>
-
     <div class="form-container">
         <h1>Insertar Nuevo Usuario</h1>
-		<br>
         <form action="/guardar" method="post">
             <label for="firstName">Nombre:</label>
             <input type="text" id="firstName" name="firstName" required>
@@ -134,16 +126,11 @@
                 <option value="Admin">Admin</option>
                 <option value="Usuario">Usuario</option>
             </select>
-			<br>
-			<br>
-			<br>
+			<br><br>
             <button type="submit">Guardar Usuario</button>
-			<br>
-			<br>
-			<!-- Botón de Volver atrás -->
-			<a href="/cliente" class="back-button">Volver Atras</a>
+			<br><br>
+            <a href="/cliente" class="back-button">Volver Atras</a>
         </form>
     </div>
-
 </body>
 </html>

@@ -31,16 +31,13 @@
 	           </form>
 	           <br><br>
 	       </c:if>
-
+			
+		
 	       <form action="/index" method="get">
 	           <button type="submit" class="volver-btn">Volver al Login</button>
 	       </form>
-	       
-		   <form action="/cliente" method="get">
-		       <button type="submit" class="cliente-btn">Ver Clientes</button>
-		   </form>
-		   
-	       <br>
+
+	       <br><br>
 	       
 	       <div class="scroll-container">
 	           <h2>Informacion del Usuario</h2>

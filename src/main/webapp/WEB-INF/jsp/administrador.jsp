@@ -22,8 +22,8 @@
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 500px;
-			height: 300px;
+            width: 550px;
+			height: 400px;
             max-width: 700px;
             text-align: center;
         }
@@ -61,6 +61,25 @@
             font-weight: bold;
         }
 
+		
+		/* Botón "Ver Clientes" */
+		.cliente-btn{
+			background-color: rgb(100, 232, 100); /* Fondo azul */
+			    color: white; /* Texto blanco */
+				font-weight: bold;
+			    padding: 10px 20px; /* Espaciado alrededor del texto */
+			    border: none; /* Sin borde */
+			    border-radius: 5px; /* Bordes redondeados */
+			    cursor: pointer; /* Aparece como puntero */
+			    font-size: 16px;
+			    transition: background-color 0.3s ease; /* Transición suave */
+		}
+
+		.cliente-btn:hover {
+		   background-color: rgb(26, 170, 26); /* Cambia el color a un tono más oscuro al pasar el ratón */
+		}
+		
+		
         /* Botón "Ver Productos" */
         .btn-ver-productos {
             background-color: red;
@@ -91,11 +110,20 @@
         <p>${mensaje}</p>
         <br>
 
+		<!-- Botón para ver clientes -->
+		<form action="/cliente" method="get">
+			 <button type="submit" class="cliente-btn">Ver Clientes</button>
+		</form>
+		<br>
+		
+		
         <!-- Botón para ver productos -->
         <form action="/administrador/prueba" method="get">
             <button type="submit" class="btn-ver-productos">Ver Productos</button>
         </form>
-		<br>
+		<br><br>
+		
+		<!-- Botón para ver volver atras -->
         <form action="/principal" method="get">
             <button type="submit" class="btn-volver">Volver atrás</button>
         </form>

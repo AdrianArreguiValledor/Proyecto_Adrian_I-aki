@@ -5,103 +5,92 @@
 <head>
     <title>Editar Usuario</title>
     <style>
-        /* Estilo general de la página */
         body {
-            font-family: 'Arial', sans-serif;
-              background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #003366, #66ccff);
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
         }
 
-        /* Estilo para el contenedor del formulario */
         .form-container {
             background-color: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 60%;
-            margin: 50px auto;
-            border: 1px solid #e0e0e0;
+            width: 100%;
+            max-width: 600px;
         }
 
-        /* Estilo para el título dentro del formulario */
-        .form-container h1 {
+        h1 {
+            color: red;
+            font-weight: bold;
             text-align: center;
-            color: #333;
-            font-size: 28px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #555;
             font-weight: bold;
         }
 
-        /* Estilo de los campos de entrada */
-        .form-container input, .form-container select {
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
             width: 100%;
             padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             box-sizing: border-box;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
 
-        /* Estilo para el botón de actualización */
-        .form-container button {
-            padding: 12px 25px;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        button {
             width: 100%;
-        }
-
-        /* Efecto hover para el botón */
-        .form-container button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Estilo para las etiquetas */
-        .form-container label {
-            font-size: 16px;
-            font-weight: 500;
-			font-weight:bold;
-            color: #333;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        /* Estilo para el botón de volver atrás */
-        .back-button {
-            display: block;
-            width: 150px;
-            padding: 10px;
-            margin: 20px auto;
-            text-align: center;
-            background-color: #6c757d;
+            padding: 12px;
+            background-color: #4CAF50;
             color: white;
+            font-weight: bold;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
+            margin-top: 10px;
         }
 
-        /* Efecto hover para el botón de volver atrás */
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            background-color: #007BFF;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
         .back-button:hover {
-            background-color: #5a6268;
-        }
-
-        /* Espaciado para los campos */
-        .form-container input, .form-container select {
-            margin-bottom: 15px;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-
     <div class="form-container">
         <h1>Editar Usuario</h1>
 
@@ -133,14 +122,16 @@
                 <option value="Admin" <c:if test="${usuario.role == 'Admin'}">selected</c:if>>Admin</option>
                 <option value="Usuario" <c:if test="${usuario.role == 'Usuario'}">selected</c:if>>Usuario</option>
             </select>
-			<br>
-			<br>
+			<br><br>
+			
             <button type="submit">Actualizar Usuario</button>
         </form>
-
-        <!-- Botón de Volver atrás -->
-        <a href="/cliente" class="back-button">Volver Atras</a>
+		<br><br>
+		
+		<form action="/cliente" method="get">
+			<button type="submit" class="back-button">Volver Atras</button>
+		</form>
+		
     </div>
-
 </body>
 </html>
