@@ -5,124 +5,137 @@
 <head>
     <title>Insertar Producto</title>
     <style>
-        /* Estilos similares al formulario de edición */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #003366, #66ccff);
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            margin: 0;
-            animation: fadeIn 1s ease-in-out; /* Animación al cargar la página */
-        }
+		/* Estilos generales para el body */
+		    body {
+		        font-family: Arial, sans-serif; /* Establece la fuente para todo el contenido */
+		        background: linear-gradient(to bottom, #003366, #66ccff); /* Fondo de gradiente, de azul oscuro a azul claro */
+		        color: #333; /* Color del texto en gris oscuro */
+		        line-height: 1.6; /* Espaciado entre líneas */
+		        padding: 20px; /* Espaciado alrededor del contenido */
+		        margin: 0; /* Elimina márgenes */
+		        animation: fadeIn 1s ease-in-out; /* Animación para hacer que el contenido aparezca suavemente */
+		    }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+		    /* Animación para hacer que la página aparezca con efecto de desvanecimiento y desplazamiento */
+		    @keyframes fadeIn {
+		        0% {
+		            opacity: 0; /* Inicialmente invisible */
+		            transform: translateY(30px); /* Empuja el contenido hacia abajo */
+		        }
+		        100% {
+		            opacity: 1; /* Totalmente visible */
+		            transform: translateY(0); /* Vuelve a la posición original */
+		        }
+		    }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1s ease-in-out; /* Animación para el contenedor */
-        }
+		    /* Estilo del contenedor principal */
+		    .container {
+		        max-width: 600px; /* Ancho máximo de 600px */
+		        margin: 0 auto; /* Centra el contenedor horizontalmente */
+		        background-color: #fff; /* Fondo blanco para el contenedor */
+		        padding: 30px; /* Espaciado interno */
+		        border-radius: 8px; /* Bordes redondeados */
+		        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera alrededor */
+		        animation: slideIn 1s ease-in-out; /* Animación de deslizamiento para el contenedor */
+		    }
 
-        @keyframes slideIn {
-            0% {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+		    /* Animación para hacer que el contenedor se deslice hacia arriba */
+		    @keyframes slideIn {
+		        0% {
+		            transform: translateY(30px); /* Empuja el contenedor hacia abajo */
+		            opacity: 0; /* Inicialmente invisible */
+		        }
+		        100% {
+		            transform: translateY(0); /* Vuelve a la posición original */
+		            opacity: 1; /* Totalmente visible */
+		        }
+		    }
 
-        h2 {
-            font-size: 2rem;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
+		    /* Estilo del título */
+		    h2 {
+		        font-size: 2rem; /* Tamaño grande para el título */
+		        color: #333; /* Color gris oscuro */
+		        text-align: center; /* Centrado del texto */
+		        margin-bottom: 20px; /* Espacio debajo del título */
+		        border-bottom: 2px solid #4CAF50; /* Línea verde debajo del título */
+		        padding-bottom: 10px; /* Espaciado debajo de la línea */
+		    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+		    /* Estilo del formulario */
+		    form {
+		        display: flex; /* Usamos Flexbox para organizar los elementos */
+		        flex-direction: column; /* Los elementos se apilan verticalmente */
+		        gap: 15px; /* Espacio entre los elementos */
+		    }
 
-        label {
-            font-size: 1.1rem;
-        }
+		    /* Estilo de las etiquetas */
+		    label {
+		        font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor para las etiquetas */
+		    }
 
-        input, select {
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: all 0.3s ease; /* Efecto al interactuar con los campos */
-        }
+		    /* Estilo de los campos de texto y select */
+		    input, select {
+		        padding: 10px; /* Relleno interno para los campos */
+		        font-size: 1rem; /* Tamaño de fuente */
+		        border: 1px solid #ccc; /* Borde gris claro */
+		        border-radius: 5px; /* Bordes redondeados */
+		        transition: all 0.3s ease; /* Efecto de transición para todos los cambios */
+		    }
 
-        input:focus, select:focus {
-            border-color: #4CAF50; /* Color verde cuando hay foco */
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.6); /* Sombra verde */
-        }
+		    /* Estilo cuando un campo o select recibe el foco */
+		    input:focus, select:focus {
+		        border-color: #4CAF50; /* Borde verde cuando está enfocado */
+		        box-shadow: 0 0 5px rgba(76, 175, 80, 0.6); /* Sombra verde alrededor del campo enfocado */
+		    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+		    /* Estilo del botón de enviar */
+		    button {
+		        background-color: #4CAF50; /* Fondo verde */
+		        color: white; /* Texto blanco */
+		        font-weight: bold; /* Texto en negrita */
+		        padding: 10px; /* Espaciado interno */
+		        border: none; /* Sin borde */
+		        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+		        border-radius: 5px; /* Bordes redondeados */
+		        font-size: 1rem; /* Tamaño de fuente */
+		        transition: background-color 0.3s ease, transform 0.3s ease; /* Efectos de transición para el fondo y tamaño */
+		    }
 
-        button:hover {
-            background-color: #45a049;
-            transform: scale(1.05); /* Agrandar el botón al pasar el ratón */
-        }
+		    /* Estilo al pasar el ratón sobre el botón */
+		    button:hover {
+		        background-color: #45a049; /* Cambia el fondo a un verde más oscuro */
+		        transform: scale(1.05); /* Agranda ligeramente el botón */
+		    }
 
-        /* Estilo para el botón "Volver a la lista de productos" */
-        .back-button button {
-            background-color: #007BFF;
-            color: white;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+		    /* Estilo para el botón "Volver a la lista de productos" */
+		    .back-button button {
+		        background-color: #007BFF; /* Fondo azul */
+		        color: white; /* Texto blanco */
+		        font-weight: bold; /* Texto en negrita */
+		        transition: background-color 0.3s ease, transform 0.3s ease; /* Transición para el fondo y tamaño */
+		    }
 
-        .back-button button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05); /* Efecto al pasar el ratón */
-        }
+		    /* Estilo al pasar el ratón sobre el botón "Volver" */
+		    .back-button button:hover {
+		        background-color: #0056b3; /* Cambia el fondo a un azul más oscuro */
+		        transform: scale(1.05); /* Agranda ligeramente el botón */
+		    }
 
-        .back-button {
-            text-align: center;
-            margin-top: 20px;
-        }
+		    /* Estilo del contenedor del botón "Volver" */
+		    .back-button {
+		        text-align: center; /* Centra el botón */
+		        margin-top: 20px; /* Espacio arriba del botón */
+		    }
 
-        .alert {
-            background-color: #f44336;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+		    /* Estilo del mensaje de alerta */
+		    .alert {
+		        background-color: #f44336; /* Fondo rojo */
+		        color: white; /* Texto blanco */
+		        padding: 10px; /* Relleno interno */
+		        border-radius: 5px; /* Bordes redondeados */
+		        margin-bottom: 20px; /* Espacio debajo del mensaje */
+		        text-align: center; /* Centra el texto de la alerta */
+		    }
     </style>
 </head>
 <body>

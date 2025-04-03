@@ -5,113 +5,123 @@
 <head>
     <title>Editar Usuario</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #003366, #66ccff);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+	        /* Estilo general del cuerpo */
+	        body {
+	            font-family: Arial, sans-serif; /* Usamos la fuente Arial para el texto */
+	            background: linear-gradient(to bottom, #003366, #66ccff); /* Fondo de gradiente que va de azul oscuro a azul claro */
+	            margin: 0; /* Eliminamos márgenes */
+	            padding: 0; /* Eliminamos relleno */
+	            display: flex; /* Utilizamos flexbox para centrar los elementos */
+	            justify-content: center; /* Centrado horizontal */
+	            align-items: center; /* Centrado vertical */
+	            height: 100vh; /* La altura es del 100% de la ventana */
+	            text-align: center; /* El texto se alinea en el centro */
+	        }
 
-        .form-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            opacity: 0;
-            animation: fadeIn 1s forwards; /* Animación de entrada */
-        }
+	        /* Contenedor del formulario */
+	        .form-container {
+	            background-color: white; /* Fondo blanco para el formulario */
+	            padding: 30px; /* Espaciado interno */
+	            border-radius: 8px; /* Bordes redondeados */
+	            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+	            width: 100%; /* Ancho al 100% */
+	            max-width: 600px; /* Ancho máximo de 600px */
+	            opacity: 0; /* Inicialmente invisible */
+	            animation: fadeIn 1s forwards; /* Animación de desvanecimiento en 1 segundo */
+	        }
 
-        h1 {
-            color: red;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+	        /* Animación para hacer aparecer el formulario */
+	        @keyframes fadeIn {
+	            0% {
+	                opacity: 0;
+	            }
+	            100% {
+	                opacity: 1;
+	            }
+	        }
 
-        label {
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: bold;
-        }
+	        /* Estilo del título */
+	        h1 {
+	            color: red; /* El título es de color rojo */
+	            font-weight: bold; /* En negrita */
+	            text-align: center; /* Centrado */
+	            margin-bottom: 20px; /* Espacio debajo del título */
+	        }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            margin-bottom: 20px;
-            transition: transform 0.2s ease-in-out;
-        }
+	        /* Estilo de las etiquetas (labels) */
+	        label {
+	            display: flex; /* Usamos flexbox para alinearlas con los campos */
+	            align-items: center; /* Alineamos los elementos de manera vertical */
+	            font-size: 18px; /* Tamaño de fuente de las etiquetas */
+	            margin-bottom: 8px; /* Espacio debajo de las etiquetas */
+	            color: #555; /* Color gris oscuro */
+	            font-weight: bold; /* Las etiquetas tienen negrita */
+	        }
 
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="number"]:focus,
-        select:focus {
-            transform: scale(1.02); /* Efecto de zoom al enfocar */
-        }
+	        /* Estilo para los campos de texto, email, número y select */
+	        input[type="text"],
+	        input[type="email"],
+	        input[type="number"],
+	        select {
+	            width: 100%; /* Los campos ocupan el 100% del ancho disponible */
+	            padding: 12px; /* Espaciado interno de los campos */
+	            border: 1px solid #ccc; /* Borde gris claro */
+	            border-radius: 4px; /* Bordes redondeados */
+	            box-sizing: border-box; /* Para incluir el padding en el tamaño total del campo */
+	            font-size: 16px; /* Tamaño de texto */
+	            margin-bottom: 20px; /* Espacio debajo de los campos */
+	            transition: transform 0.2s ease-in-out; /* Efecto de transición al hacer zoom */
+	        }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-        }
+	        /* Efecto de enfoque en los campos */
+	        input[type="text"]:focus,
+	        input[type="email"]:focus,
+	        input[type="number"]:focus,
+	        select:focus {
+	            transform: scale(1.02); /* Hace que el campo se agrande un poco al hacer foco */
+	        }
 
-        button:hover {
-            background-color: #45a049;
-            transform: scale(1.05); /* Efecto de zoom en el botón */
-        }
+	        /* Estilo del botón de envío */
+	        button {
+	            width: 100%; /* El botón ocupa el 100% del ancho */
+	            padding: 12px; /* Espaciado interno */
+	            background-color: #4CAF50; /* Fondo verde */
+	            color: white; /* Texto blanco */
+	            font-weight: bold; /* Texto en negrita */
+	            border: none; /* Sin borde */
+	            border-radius: 4px; /* Bordes redondeados */
+	            font-size: 16px; /* Tamaño de texto */
+	            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+	            margin-top: 10px; /* Espacio superior */
+	            transition: background-color 0.3s ease-in-out, transform 0.2s ease; /* Efecto de transición al pasar el ratón */
+	        }
 
-        .back-button {
-            background-color: #007BFF;
-            width: 100%;
-            padding: 12px;
-            border: none;
-            font-weight: bold;
-            border-radius: 4px;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-        }
+	        /* Efecto de hover para el botón */
+	        button:hover {
+	            background-color: #45a049; /* Cambia el fondo a un verde más oscuro */
+	            transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+	        }
 
-        .back-button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05); /* Efecto de zoom en el botón de Volver */
-        }
+	        /* Estilo para el botón "Volver" */
+	        .back-button {
+	            background-color: #007BFF; /* Fondo azul */
+	            width: 100%; /* El botón ocupa el 100% del ancho */
+	            padding: 12px; /* Espaciado interno */
+	            border: none; /* Sin borde */
+	            font-weight: bold; /* Texto en negrita */
+	            border-radius: 4px; /* Bordes redondeados */
+	            font-size: 16px; /* Tamaño de texto */
+	            color: white; /* Texto blanco */
+	            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+	            margin-top: 10px; /* Espacio superior */
+	            transition: background-color 0.3s ease-in-out, transform 0.2s ease; /* Efecto de transición */
+	        }
 
-        /* Animaciones */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
+	        /* Efecto de hover para el botón "Volver" */
+	        .back-button:hover {
+	            background-color: #0056b3; /* Cambia el fondo a un azul más oscuro */
+	            transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+	        }
 
     </style>
 

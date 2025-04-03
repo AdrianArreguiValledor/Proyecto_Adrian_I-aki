@@ -5,131 +5,145 @@
 <head>
     <title>Editar Producto</title>
     <style>
-        /* Estilos CSS similares a los de la lista de productos */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            margin: 0;
-            animation: fadeIn 1s ease-in-out; /* Animación de entrada */
-        }
+		/* Estilos CSS similares a los de la lista de productos */
+		body {
+		    font-family: Arial, sans-serif; /* Fuente para el texto */
+		    background: linear-gradient(to bottom, #003366, #66ccff); /* Fondo degradado de azul oscuro a azul claro */
+		    color: #333; /* Color del texto en gris oscuro */
+		    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+		    padding: 20px; /* Relleno alrededor del contenido */
+		    margin: 0; /* Elimina márgenes predeterminados */
+		    animation: fadeIn 1s ease-in-out; /* Animación de entrada */
+		}
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+		/* Animación de fade-in para la entrada de la página */
+		@keyframes fadeIn {
+		    0% {
+		        opacity: 0; /* Inicia con opacidad 0 */
+		        transform: translateY(30px); /* Empuja el contenido hacia abajo */
+		    }
+		    100% {
+		        opacity: 1; /* Termina con opacidad 1 */
+		        transform: translateY(0); /* El contenido vuelve a su posición original */
+		    }
+		}
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1s ease-in-out; /* Animación para el contenedor */
-        }
+		/* Contenedor principal para la forma de edición */
+		.container {
+		    max-width: 600px; /* Establece un ancho máximo */
+		    margin: 0 auto; /* Centra el contenedor horizontalmente */
+		    background-color: #fff; /* Fondo blanco para el contenedor */
+		    padding: 30px; /* Espaciado interno */
+		    border-radius: 8px; /* Bordes redondeados */
+		    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+		    animation: slideIn 1s ease-in-out; /* Animación de deslizamiento para el contenedor */
+		}
 
-        @keyframes slideIn {
-            0% {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+		/* Animación de deslizamiento para el contenedor */
+		@keyframes slideIn {
+		    0% {
+		        transform: translateY(30px); /* Inicia desde abajo */
+		        opacity: 0; /* Inicia con opacidad 0 */
+		    }
+		    100% {
+		        transform: translateY(0); /* Vuelve a su posición original */
+		        opacity: 1; /* Termina con opacidad 1 */
+		    }
+		}
 
-        h2 {
-            font-size: 2rem;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
+		/* Estilo para el título */
+		h2 {
+		    font-size: 2rem; /* Tamaño de fuente grande */
+		    color: #333; /* Color gris oscuro */
+		    text-align: center; /* Centra el título */
+		    margin-bottom: 20px; /* Espacio debajo del título */
+		    border-bottom: 2px solid #4CAF50; /* Línea verde debajo del título */
+		    padding-bottom: 10px; /* Espacio adicional debajo de la línea */
+		}
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+		/* Estilo del formulario */
+		form {
+		    display: flex; /* Utiliza Flexbox para organizar los elementos */
+		    flex-direction: column; /* Organiza los elementos de arriba hacia abajo */
+		    gap: 15px; /* Espacio entre los elementos del formulario */
+		}
 
-        label {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
+		/* Estilo para las etiquetas de los campos */
+		label {
+		    font-weight: bold; /* Negrita en las etiquetas */
+		    font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor */
+		}
 
-        input, select {
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: all 0.3s ease; /* Efecto al interactuar con los campos */
-        }
+		/* Estilo para los campos de entrada y selección */
+		input, select {
+		    padding: 10px; /* Espaciado interno */
+		    font-size: 1rem; /* Tamaño de fuente */
+		    border: 1px solid #ccc; /* Borde gris claro */
+		    border-radius: 5px; /* Bordes redondeados */
+		    transition: all 0.3s ease; /* Transición suave al interactuar con los campos */
+		}
 
-        input:focus, select:focus {
-            border-color: #4CAF50; /* Color verde cuando hay foco */
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.6); /* Sombra verde */
-        }
+		/* Estilo para los campos de entrada y selección con foco */
+		input:focus, select:focus {
+		    border-color: #4CAF50; /* Color verde en el borde cuando hay foco */
+		    box-shadow: 0 0 5px rgba(76, 175, 80, 0.6); /* Sombra verde cuando el campo tiene foco */
+		}
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+		/* Estilo para los botones */
+		button {
+		    background-color: #4CAF50; /* Fondo verde */
+		    color: white; /* Texto blanco */
+		    padding: 10px; /* Espaciado interno */
+		    font-weight: bold; /* Negrita en el texto del botón */
+		    border: none; /* Elimina el borde por defecto */
+		    cursor: pointer; /* Muestra el cursor de mano al pasar por encima */
+		    border-radius: 5px; /* Bordes redondeados */
+		    font-size: 1rem; /* Tamaño de fuente */
+		    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave en el cambio de color y tamaño */
+		}
 
-        button:hover {
-            background-color: #45a049;
-            transform: scale(1.05); /* Agrandar el botón al pasar el ratón */
-        }
+		/* Efecto de hover para los botones */
+		button:hover {
+		    background-color: #45a049; /* Cambia a un verde más oscuro al pasar el ratón */
+		    transform: scale(1.05); /* Agranda el botón */
+		}
 
-        /* Estilo para el botón "Volver a la lista de productos" */
-        button.btn-volver {
-            background-color: #f44336; /* Rojo */
-            color: white;
-            padding: 10px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 100%;
-        }
+		/* Estilo para el botón "Volver a la lista de productos" */
+		button.btn-volver {
+		    background-color: #f44336; /* Fondo rojo */
+		    color: white; /* Texto blanco */
+		    padding: 10px; /* Espaciado interno */
+		    font-weight: bold; /* Negrita en el texto */
+		    border: none; /* Elimina el borde por defecto */
+		    cursor: pointer; /* Muestra el cursor de mano al pasar por encima */
+		    border-radius: 5px; /* Bordes redondeados */
+		    font-size: 1rem; /* Tamaño de fuente */
+		    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave en el cambio de color y tamaño */
+		    width: 100%; /* Ocupa el 100% del ancho disponible */
+		}
 
-        button.btn-volver:hover {
-            background-color: #c62828; /* Rojo más oscuro en hover */
-            transform: scale(1.05); /* Agrandar el botón */
-        }
+		/* Efecto de hover para el botón "Volver a la lista de productos" */
+		button.btn-volver:hover {
+		    background-color: #c62828; /* Cambia a un rojo más oscuro al pasar el ratón */
+		    transform: scale(1.05); /* Agranda el botón */
+		}
 
-        .back-button {
-            text-align: center;
-            margin-top: 20px;
-        }
+		/* Estilo para el botón de retroceso */
+		.back-button {
+		    text-align: center; /* Centra el botón */
+		    margin-top: 20px; /* Espacio superior */
+		}
 
-        .alert {
-            background-color: #f44336;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+		/* Estilo para los mensajes de alerta */
+		.alert {
+		    background-color: #f44336; /* Fondo rojo */
+		    color: white; /* Texto blanco */
+		    padding: 10px; /* Espaciado interno */
+		    border-radius: 5px; /* Bordes redondeados */
+		    margin-bottom: 20px; /* Espacio debajo de la alerta */
+		    text-align: center; /* Centra el texto */
+		}
+
     </style>
 </head>
 <body>

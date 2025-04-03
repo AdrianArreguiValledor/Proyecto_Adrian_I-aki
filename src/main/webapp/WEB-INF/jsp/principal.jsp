@@ -5,159 +5,159 @@
 <head>
     <title>Pagina JSP Sencilla</title>
     <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            animation: fadeIn 1s ease-out;
-        }
+		/* Estilos generales */
+		      body {
+		          font-family: Arial, sans-serif; /* Fuente de texto */
+		          background: linear-gradient(to bottom, #003366, #66ccff); /* De azul oscuro a azul claro */
+		          margin: 0; /* Elimina márgenes */
+		          padding: 0; /* Elimina relleno */
+		          display: flex; /* Usa Flexbox para organizar los elementos */
+		          flex-direction: column; /* Coloca los elementos en columna */
+		          align-items: center; /* Centra el contenido horizontalmente */
+		          justify-content: center; /* Centra el contenido verticalmente */
+		          height: 100vh; /* Hace que el body ocupe toda la altura de la ventana */
+		          text-align: center; /* Centra el texto */
+		          animation: fadeIn 1s ease-out; /* Animación de desvanecimiento */
+		      }
 
-        /* Contenedor principal */
-        .container {
-            background-color: rgb(85, 85, 85); /* Fondo negro */
-            color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s ease;
-            max-width: 800px;
-            margin: auto;
-            opacity: 0;
-            animation: slideIn 1s forwards;
-        }
+		      /* Contenedor principal */
+		      .container {
+		          background-color: rgb(85, 85, 85); /* Fondo gris oscuro */
+		          color: #fff; /* Texto blanco */
+		          padding: 40px; /* Relleno interno */
+		          border-radius: 10px; /* Bordes redondeados */
+		          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra ligera */
+		          transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+		          max-width: 800px; /* Máximo ancho de 800px */
+		          margin: auto; /* Centra el contenedor */
+		          opacity: 0; /* Inicialmente invisible */
+		          animation: slideIn 1s forwards; /* Animación de deslizamiento */
+		      }
 
-        /* Efecto al pasar el ratón por encima */
-        .container:hover {
-            background-color: #333;
-        }
+		      /* Efecto al pasar el ratón por encima */
+		      .container:hover {
+		          background-color: #333; /* Fondo más oscuro al pasar el ratón */
+		      }
 
-        /* Titulo principal */
-        h1 {
-            font-weight: bold;
-            color: #fff;
-            margin-top: 0;
-            padding-top: 20px;
-            font-size: 35px;
-        }
+		      /* Titulo principal */
+		      h1 {
+		          font-weight: bold; /* Negrita */
+		          color: #fff; /* Texto blanco */
+		          margin-top: 0; /* Elimina el margen superior */
+		          padding-top: 20px; /* Relleno superior */
+		          font-size: 35px; /* Tamaño de fuente */
+		      }
 
-        /* Estilo para los mensajes */
-        p {
-            font-weight: normal;
-            color: #fff;
-        }
+		      /* Estilo para los mensajes */
+		      p {
+		          font-weight: normal; /* Texto normal */
+		          color: #fff; /* Texto blanco */
+		      }
 
-        /* Estilo para los botones */
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            border: none;
-            margin-top: 20px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+		      /* Estilo para los botones */
+		      button {
+		          padding: 10px 20px; /* Relleno interno */
+		          font-size: 16px; /* Tamaño de fuente */
+		          font-weight: bold; /* Negrita */
+		          border-radius: 5px; /* Bordes redondeados */
+		          cursor: pointer; /* Cambia el cursor cuando pasa sobre el botón */
+		          border: none; /* Sin borde */
+		          margin-top: 20px; /* Espacio superior */
+		          transition: transform 0.3s ease, background-color 0.3s ease; /* Efecto de transición */
+		      }
 
-        button:hover {
-            transform: scale(1.1);
-        }
+		      button:hover {
+		          transform: scale(1.1); /* Aumenta un 10% el tamaño al pasar el ratón */
+		      }
 
-        .volver-btn {
-            background-color: #007BFF;
-            color: white;
-        }
+		      .volver-btn {
+		          background-color: #007BFF; /* Fondo azul */
+		          color: white; /* Texto blanco */
+		      }
 
-        .volver-btn:hover {
-            background-color: #0056b3;
-        }
+		      .volver-btn:hover {
+		          background-color: #0056b3; /* Fondo más oscuro al pasar el ratón */
+		      }
 
-        .administrador-btn {
-            background-color: red;
-            color: white;
-        }
+		      .administrador-btn {
+		          background-color: red; /* Fondo rojo */
+		          color: white; /* Texto blanco */
+		      }
 
-        .administrador-btn:hover {
-            background-color: rgb(193, 2, 46);
-        }
+		      .administrador-btn:hover {
+		          background-color: rgb(193, 2, 46); /* Fondo más oscuro al pasar el ratón */
+		      }
 
-        /* Estilo para el contenedor con scroll */
-        .scroll-container {
-            overflow-y: scroll;
-            height: 400px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            background-color: red;
-            margin-top: 20px;
-            color: #333;
-            max-width: 95%;
-            animation: scrollIn 1s ease-out;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+		      /* Estilo para el contenedor con scroll */
+		      .scroll-container {
+		          overflow-y: scroll; /* Activa el desplazamiento vertical */
+		          height: 400px; /* Altura máxima de 400px */
+		          padding: 10px; /* Relleno interno */
+		          border: 1px solid #ddd; /* Borde gris claro */
+		          background-color: red; /* Fondo rojo */
+		          margin-top: 20px; /* Espacio superior */
+		          color: #333; /* Color de texto gris oscuro */
+		          max-width: 95%; /* Máximo ancho del 95% */
+		          animation: scrollIn 1s ease-out; /* Animación de deslizamiento */
+		          transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+		      }
 
-        .scroll-container:hover {
-            transform: scale(1.05);
-            background-color: darkred; /* Cambio de color al pasar el ratón */
-        }
+		      .scroll-container:hover {
+		          transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+		          background-color: darkred; /* Fondo más oscuro al pasar el ratón */
+		      }
 
-        /* Estilo para los párrafos de error */
-        .error {
-            color: red;
-            font-size: 14px;
-            text-align: center;
-            margin-top: 20px;
-        }
+		      /* Estilo para los párrafos de error */
+		      .error {
+		          color: red; /* Color rojo */
+		          font-size: 14px; /* Tamaño de fuente */
+		          text-align: center; /* Centra el texto */
+		          margin-top: 20px; /* Espacio superior */
+		      }
 
-        /* Estilo para los elementos de la pagina de usuario */
-        h2 {
-            font-size: 30px;
-            color: #fff;
-            font-weight: bold;
-            margin-top: 20px;
-        }
+		      /* Estilo para los elementos de la pagina de usuario */
+		      h2 {
+		          font-size: 30px; /* Tamaño de fuente */
+		          color: #fff; /* Texto blanco */
+		          font-weight: bold; /* Negrita */
+		          margin-top: 20px; /* Espacio superior */
+		      }
 
-        strong {
-            color: #ffeb3b;
-        }
+		      strong {
+		          color: #ffeb3b; /* Color amarillo */
+		      }
 
-        /* Animaciones */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+		      /* Animaciones */
+		      @keyframes slideIn {
+		          from {
+		              opacity: 0; /* Comienza invisible */
+		              transform: translateY(-20px); /* Desplazado hacia arriba */
+		          }
+		          to {
+		              opacity: 1; /* Totalmente visible */
+		              transform: translateY(0); /* Regresa a su posición original */
+		          }
+		      }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+		      @keyframes fadeIn {
+		          from {
+		              opacity: 0; /* Comienza invisible */
+		          }
+		          to {
+		              opacity: 1; /* Totalmente visible */
+		          }
+		      }
 
-        @keyframes scrollIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+		      @keyframes scrollIn {
+		          from {
+		              opacity: 0; /* Comienza invisible */
+		              transform: translateY(20px); /* Desplazado hacia abajo */
+		          }
+		          to {
+		              opacity: 1; /* Totalmente visible */
+		              transform: translateY(0); /* Regresa a su posición original */
+		          }
+		      }
     </style>
 </head>
 <body>

@@ -5,229 +5,234 @@
     <title>Registro</title>
  
     <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+		/* Estilos generales para el cuerpo de la página */
+		body {
+		    font-family: Arial, sans-serif; /* Usamos una fuente sans-serif para el texto */
+		    background: linear-gradient(to bottom, #003366, #66ccff); /* Fondo con un gradiente de azul oscuro a azul claro */
+		    margin: 0; /* Elimina márgenes por defecto */
+		    padding: 0; /* Elimina padding por defecto */
+		    display: flex; /* Utilizamos flexbox para centrar el contenido */
+		    justify-content: center; /* Centra el contenido horizontalmente */
+		    align-items: center; /* Centra el contenido verticalmente */
+		    height: 100vh; /* Asegura que el contenido ocupe toda la altura de la ventana */
+		    text-align: center; /* Centra el texto dentro de la página */
+		}
 
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px; /* Establece un ancho máximo para el formulario */
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards; /* Agregamos la animación */
-        }
+		/* Contenedor del formulario */
+		.container {
+		    background-color: white; /* Fondo blanco para el contenedor */
+		    padding: 30px; /* Espaciado interno */
+		    border-radius: 8px; /* Bordes redondeados */
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+		    width: 100%; /* Ancho del contenedor */
+		    max-width: 600px; /* Ancho máximo para el formulario */
+		    opacity: 0; /* Inicia el contenedor con opacidad 0 para la animación */
+		    transform: translateY(50px); /* Empuja el contenedor hacia abajo al inicio */
+		    animation: fadeInUp 1s forwards; /* Aplica animación de entrada */
+		}
 
-        /* Animación de desvanecimiento y movimiento hacia arriba */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+		/* Animación de desvanecimiento y movimiento hacia arriba */
+		@keyframes fadeInUp {
+		    0% {
+		        opacity: 0; /* Empieza invisible */
+		        transform: translateY(50px); /* Empieza desplazado hacia abajo */
+		    }
+		    100% {
+		        opacity: 1; /* Termina visible */
+		        transform: translateY(0); /* Termina en su lugar original */
+		    }
+		}
 
-        #password-status {
-            font-size: 18px; /* Letra grande */
-            font-weight: bold; /* Negrita */
-            text-align: center;
-            margin-top: 10px;
-        }
+		/* Estilo para el estado de la contraseña (visible u oculta) */
+		#password-status {
+		    font-size: 18px; /* Tamaño grande para el mensaje */
+		    font-weight: bold; /* Negrita para hacer más notorio el mensaje */
+		    text-align: center; /* Centra el texto */
+		    margin-top: 10px; /* Espaciado superior */
+		}
 
-        /* Cuando la contraseña esté visible */
-        .password-visible {
-            color: green;
-        }
+		/* Estilos cuando la contraseña es visible (verde) */
+		.password-visible {
+		    color: green; /* Texto en verde */
+		}
 
-        /* Cuando la contraseña esté oculta */
-        .password-hidden {
-            color: red;
-        }
+		/* Estilos cuando la contraseña es oculta (rojo) */
+		.password-hidden {
+		    color: red; /* Texto en rojo */
+		}
 
-        /* Contenedor del campo de contraseña */
-        .password-container {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center;  /* Centra el icono y el input verticalmente */
-        }
+		/* Contenedor para el campo de contraseña */
+		.password-container {
+		    position: relative; /* Necesario para colocar el icono sobre el campo */
+		    width: 100%; /* Ancho completo */
+		    display: flex; /* Utilizamos flexbox para alinear el icono y el campo de texto */
+		    align-items: center;  /* Alineación vertical para el icono y el input */
+		}
 
-        /* Estilo del campo de contraseña */
-        .password-container input {
-            width: 100%;
-            padding: 12px 40px 12px 12px;  /* Aumentamos el padding a la derecha para el icono */
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            height: 50px;  /* Aumenta la altura del input */
-            line-height: 24px;  /* Alinea el texto dentro del input */
-        }
+		/* Estilos del campo de entrada de la contraseña */
+		.password-container input {
+		    width: 100%; /* Ancho completo */
+		    padding: 12px 40px 12px 12px; /* Espaciado extra en la derecha para el icono */
+		    border: 1px solid #ccc; /* Borde gris */
+		    border-radius: 4px; /* Bordes redondeados */
+		    box-sizing: border-box; /* Asegura que el padding no se salga del contenedor */
+		    font-size: 16px; /* Tamaño de la fuente */
+		    height: 50px;  /* Mayor altura para el campo de contraseña */
+		    line-height: 24px;  /* Alineación del texto dentro del input */
+		}
 
-        /* Estilo del icono del ojo */
-        .toggle-password {
-            position: absolute;
-            right: 12px;  /* Ajustamos un poco el espacio a la derecha */
-            font-size: 20px;  /* Puedes cambiar el tamaño si deseas que el icono sea más grande */
-            color: #555;
-            cursor: pointer;
-            top: 50%;  /* Centra el icono verticalmente */
-            transform: translateY(-50%);  /* Ajuste fino para centrarlo perfectamente */
-            user-select: none;  /* Evita que el texto sea seleccionable */
-        }
+		/* Estilos del icono del ojo (para mostrar/ocultar contraseña) */
+		.toggle-password {
+		    position: absolute; /* Coloca el icono en una posición relativa al campo */
+		    right: 12px;  /* Coloca el icono a la derecha del campo */
+		    font-size: 20px;  /* Tamaño del icono */
+		    color: #555; /* Color gris para el icono */
+		    cursor: pointer; /* Cambia el cursor cuando pasa sobre el icono */
+		    top: 50%;  /* Coloca el icono en el centro vertical */
+		    transform: translateY(-50%);  /* Ajuste fino para centrar el icono perfectamente */
+		    user-select: none;  /* Evita que el texto del icono sea seleccionable */
+		}
 
-        h2 {
-            color: red;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px; /* Espacio entre el título y el formulario */
-        }
+		/* Estilo para el título */
+		h2 {
+		    color: red; /* Color rojo para el título */
+		    font-weight: bold; /* Título en negrita */
+		    text-align: center; /* Centrado del título */
+		    margin-bottom: 20px; /* Espaciado inferior entre el título y el formulario */
+		}
 
-        /* Estilos para el formulario */
-        form {
-            width: 100%;
-            margin-top: 20px;
-        }
+		/* Estilos del formulario */
+		form {
+		    width: 100%; /* Asegura que el formulario ocupe todo el ancho disponible */
+		    margin-top: 20px; /* Espaciado superior */
+		}
 
-        /* Etiquetas */
-        label {
-            display: flex;
-            align-items: center; /* Alinea la imagen y el texto */
-            font-size: 18px; /* Aumentado el tamaño de letra */
-            margin-bottom: 8px;
-            color: #555;
-            font-weight: bold;
-        }
+		/* Estilos para las etiquetas de los campos */
+		label {
+		    display: flex; /* Usamos flexbox para alinear el icono y el texto de la etiqueta */
+		    align-items: center; /* Alinea el texto y la imagen verticalmente */
+		    font-size: 18px; /* Aumentamos el tamaño de la fuente de las etiquetas */
+		    margin-bottom: 8px; /* Espaciado inferior entre la etiqueta y el campo */
+		    color: #555; /* Color gris para las etiquetas */
+		    font-weight: bold; /* Negrita para las etiquetas */
+		}
 
-        /* Ajuste de las imágenes dentro de las etiquetas */
-        label img {
-            width: 34px; /* Ajusta el tamaño de las imágenes */
-            height: 28px;
-            margin-right: 10px; /* Espacio entre la imagen y el texto */
-        }
+		/* Estilo de las imágenes dentro de las etiquetas */
+		label img {
+		    width: 34px; /* Ajustamos el tamaño de las imágenes */
+		    height: 28px; /* Altura proporcional */
+		    margin-right: 10px; /* Espaciado entre la imagen y el texto */
+		}
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
+		/* Estilos para los campos de texto */
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+		    width: 100%; /* Los campos ocupan todo el ancho disponible */
+		    padding: 10px; /* Espaciado interno */
+		    margin-bottom: 20px; /* Espaciado inferior */
+		    border: 1px solid #ccc; /* Borde gris para los campos */
+		    border-radius: 4px; /* Bordes redondeados */
+		    box-sizing: border-box; /* Asegura que el padding no se salga del contenedor */
+		    font-size: 16px; /* Tamaño de la fuente */
+		}
 
-        /* Estilo para el botón "Registrarse" */
-        button.registro-btn {
-            width: 100%; /* El botón ocupará todo el ancho del formulario */
-            padding: 12px;
-            background-color: #4CAF50; /* Color verde */
-            color: white;
-            font-weight: bold;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: transform 0.3s ease; /* Transición suave para el zoom */
-        }
+		/* Estilo para el botón de registro */
+		button.registro-btn {
+		    width: 100%; /* El botón ocupa todo el ancho del formulario */
+		    padding: 12px; /* Espaciado interno */
+		    background-color: #4CAF50; /* Fondo verde para el botón */
+		    color: white; /* Texto blanco */
+		    font-weight: bold; /* Negrita para el texto */
+		    border: none; /* Sin borde */
+		    border-radius: 4px; /* Bordes redondeados */
+		    font-size: 16px; /* Tamaño de la fuente */
+		    cursor: pointer; /* Cambia el cursor a manito */
+		    margin-top: 10px; /* Espaciado superior */
+		    transition: transform 0.3s ease; /* Transición suave al pasar el ratón */
+		}
 
-        /* Efecto de zoom al pasar el ratón sobre el botón "Registrarse" */
-        button.registro-btn:hover {
-            background-color: #45a049; /* Verde más oscuro cuando se pasa el ratón */
-            transform: scale(1.1); /* Aumenta el tamaño del botón */
-        }
+		/* Efecto de zoom cuando se pasa el ratón sobre el botón de registro */
+		button.registro-btn:hover {
+		    background-color: #45a049; /* Fondo verde más oscuro al pasar el ratón */
+		    transform: scale(1.1); /* Aumenta el tamaño del botón */
+		}
 
-        /* Estilo para el botón "Volver al Login" */
-        button.volver-btn {
-            background-color: #007BFF; /* Color azul */
-            width: 100%;
-            padding: 12px;
-            border: none;
-            font-weight: bold;
-            border-radius: 4px;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: transform 0.3s ease; /* Transición suave para el zoom */
-        }
+		/* Estilo para el botón de volver al login */
+		button.volver-btn {
+		    background-color: #007BFF; /* Fondo azul */
+		    width: 100%; /* El botón ocupa todo el ancho del formulario */
+		    padding: 12px; /* Espaciado interno */
+		    border: none; /* Sin borde */
+		    font-weight: bold; /* Texto en negrita */
+		    border-radius: 4px; /* Bordes redondeados */
+		    font-size: 16px; /* Tamaño de la fuente */
+		    color: white; /* Texto blanco */
+		    cursor: pointer; /* Cambia el cursor a manito */
+		    margin-top: 10px; /* Espaciado superior */
+		    transition: transform 0.3s ease; /* Transición suave al pasar el ratón */
+		}
 
-        /* Efecto de zoom al pasar el ratón sobre el botón "Volver al Login" */
-        button.volver-btn:hover {
-            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
-            transform: scale(1.1); /* Aumenta el tamaño del botón */
-        }
+		/* Efecto de zoom cuando se pasa el ratón sobre el botón de volver al login */
+		button.volver-btn:hover {
+		    background-color: #0056b3; /* Fondo azul más oscuro */
+		    transform: scale(1.1); /* Aumenta el tamaño del botón */
+		}
 
-        /* Estilo para los mensajes de error y éxito */
-        p.error {
-            color: red;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+		/* Estilo para los mensajes de error */
+		p.error {
+		    color: red; /* Color rojo para los mensajes de error */
+		    font-size: 14px; /* Tamaño de fuente pequeño */
+		    text-align: center; /* Centra el mensaje */
+		    margin-bottom: 20px; /* Espaciado inferior */
+		}
 
-        p.success {
-            color: green;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+		/* Estilo para los mensajes de éxito */
+		p.success {
+		    color: green; /* Color verde para los mensajes de éxito */
+		    font-size: 14px; /* Tamaño de fuente pequeño */
+		    text-align: center; /* Centra el mensaje */
+		    margin-bottom: 20px; /* Espaciado inferior */
+		}
 
-        /* Asegura que el formulario esté centrado en la página */
-        form {
-            width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
-        }
+		/* Ajusta el formulario para que esté centrado y con un ancho limitado */
+		form {
+		    width: 100%; /* Asegura que el formulario ocupe todo el ancho disponible */
+		    max-width: 450px; /* Ancho máximo para el formulario */
+		    margin: 0 auto; /* Centra el formulario horizontalmente */
+		}
 
-        /* Estilo para el campo de selección de rol */
-        select#rol {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: #fff; /* Fondo blanco para el select */
-            box-sizing: border-box;
-            cursor: pointer; /* Muestra el cursor de "manito" para indicar que es un campo seleccionable */
-        }
+		/* Estilo para el campo de selección de rol */
+		select#rol {
+		    width: 100%; /* Ancho completo */
+		    padding: 10px; /* Espaciado interno */
+		    margin-bottom: 20px; /* Espaciado inferior */
+		    border: 1px solid #ccc; /* Borde gris */
+		    border-radius: 4px; /* Bordes redondeados */
+		    font-size: 16px; /* Tamaño de la fuente */
+		    background-color: #fff; /* Fondo blanco */
+		    box-sizing: border-box; /* Asegura que el padding no se salga del contenedor */
+		    cursor: pointer; /* Muestra el cursor de "manito" */
+		}
 
-        /* Cambiar color cuando el select es seleccionado */
-        select#rol:focus {
-            border-color: #4CAF50; /* Color verde cuando el select está en foco */
-            outline: none; /* Elimina el borde de enfoque predeterminado */
-        }
+		/* Cambiar el borde cuando el select está en foco */
+		select#rol:focus {
+		    border-color: #4CAF50; /* Borde verde cuando está enfocado */
+		    outline: none; /* Elimina el borde de enfoque predeterminado */
+		}
 
-        /* Estilo para las opciones dentro del select */
-        select#rol option {
-            padding: 10px;
-            background-color: #fff;
-            font-size: 16px;
-            color: #333;
-        }
+		/* Estilo para las opciones dentro del select */
+		select#rol option {
+		    padding: 10px; /* Espaciado interno para las opciones */
+		    background-color: #fff; /* Fondo blanco */
+		    font-size: 16px; /* Tamaño de la fuente */
+		    color: #333; /* Color del texto */
+		}
 
-        /* Resaltar las opciones al pasar el ratón por encima */
-        select#rol option:hover {
-            background-color: #f2f2f2; /* Color gris claro al pasar el ratón */
-        }
+		/* Estilo al pasar el ratón por encima de las opciones */
+		select#rol option:hover {
+		    background-color: #f2f2f2; /* Fondo gris claro al pasar el ratón */
+		}
     </style>
 </head>
 <body>
