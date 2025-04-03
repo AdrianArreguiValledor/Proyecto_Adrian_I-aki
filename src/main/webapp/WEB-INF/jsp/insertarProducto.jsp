@@ -102,10 +102,10 @@
             <input type="text" id="descripcion" name="descripcion" required />
 
             <label for="precio">Precio:</label>
-            <input type="number" id="precio" name="precio" step="0.01" required />
+            <input type="number" id="precio" name="precio" step="0.01" required min="0" />
 
             <label for="stock">Stock:</label>
-            <input type="number" id="stock" name="stock" required />
+            <input type="number" id="stock" name="stock" required min="0" />
 
             <label for="categoria">Categoría:</label>
             <select id="categoria" name="categoria" required>

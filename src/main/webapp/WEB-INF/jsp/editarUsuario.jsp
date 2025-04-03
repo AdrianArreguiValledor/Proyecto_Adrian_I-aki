@@ -108,7 +108,7 @@
             <input type="text" id="phone" name="phone" value="${usuario.phone}" required>
 
             <label for="age">Edad:</label>
-            <input type="number" id="age" name="age" value="${usuario.age}" required>
+            <input type="number" id="age" name="age" value="${usuario.age}" required min="0">
 
             <label for="gender">Genero:</label>
             <select id="gender" name="gender" required>

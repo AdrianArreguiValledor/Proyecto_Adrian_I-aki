@@ -4,9 +4,121 @@
 <html>
 <head>
     <title>Página JSP Sencilla</title>
-    <link rel="stylesheet" type="text/css" href="style3.css">
+    <style>
+		/* Estilos generales */
+		body {
+		    font-family: Arial, sans-serif;
+		    background: linear-gradient(to bottom, #003366, #66ccff); /* Azul oscuro a azul claro */
+		    margin: 0;
+		    padding: 0;
+		    display: flex;
+		    flex-direction: column; /* Para apilar los elementos */
+		    align-items: center; /* Centrar horizontalmente */
+		    justify-content: center; /* Centrar verticalmente */
+		    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+		    text-align: center;
+		}
 
+		/* Contenedor principal */
+		.container {
+		    background-color: rgb(85, 85, 85); /* Fondo negro */
+		    color: #fff; /* Texto en blanco */
+		    padding: 40px; /* Espacio alrededor del contenido */
+		    border-radius: 10px; /* Bordes redondeados */
+		    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+		    transition: background-color 0.3s ease; /* Transición suave al cambiar el color */
+		    max-width: 800px; /* Controla el ancho del contenedor */
+		    margin: auto; /* Centra el contenedor horizontalmente */
+		}
+
+		/* Efecto al pasar el ratón por encima */
+		.container:hover {
+		    background-color: #333; /* Un tono gris oscuro para el hover */
+		}
+
+		/* Título principal */
+		h1 {
+		    font-weight: bold; /* Negrita en el título */
+		    color: #fff; /* Color blanco en el título */
+		    margin-top: 0; /* Asegura que no haya margen superior */
+		    padding-top: 20px; /* Añade un poco de espacio superior si lo deseas */
+		    font-size: 35px; /* Tamaño de fuente más grande */
+		}
+
+		/* Estilo para los mensajes */
+		p {
+		    font-weight: normal; /* Los párrafos no son negritas */
+		    color: #fff; /* Texto blanco en los párrafos */
+		}
+
+		/* Estilo para el botón de volver al login */
+		.volver-btn {
+		    background-color: #007BFF; /* Fondo azul */
+		    color: white; /* Texto blanco */
+		    font-weight: bold;
+		    padding: 10px 20px; /* Espaciado alrededor del texto */
+		    border: none; /* Sin borde */
+		    border-radius: 5px; /* Bordes redondeados */
+		    cursor: pointer; /* Aparece como puntero */
+		    font-size: 16px;
+		    transition: background-color 0.3s ease; /* Transición suave */
+		    margin-top: 20px; /* Espacio superior para separarlo de los elementos anteriores */
+		}
+
+		.volver-btn:hover {
+		    background-color: #0056b3; /* Cambia el color a un tono más oscuro al pasar el ratón */
+		}
+
+		/* Estilo para el botón de administrador */
+		.administrador-btn {
+		    background-color: red; /* Fondo rojo */
+		    font-weight: bold;
+		    color: white; /* Texto blanco */
+		    padding: 10px 20px; /* Espaciado alrededor del texto */
+		    border: none; /* Sin borde */
+		    border-radius: 5px; /* Bordes redondeados */
+		    cursor: pointer; /* Aparece como puntero */
+		    font-size: 16px;
+		    transition: background-color 0.3s ease; /* Transición suave */
+		    margin-top: 20px; /* Espacio superior para separarlo de los elementos anteriores */
+		}
+
+		.administrador-btn:hover {
+		    background-color: rgb(193, 2, 46); /* Tono rojo más oscuro al pasar el ratón */
+		}
+
+		/* Estilo para el contenedor con scroll */
+		.scroll-container {
+		    overflow-y: scroll;
+		    height: 400px; /* Establece una altura fija para el scroll */
+		    padding: 10px;
+		    border: 1px solid #ddd;
+		    background-color: rgb(255, 0, 0);
+		    margin-top: 20px; /* Espacio superior para separarlo de los elementos anteriores */
+		}
+
+		/* Estilo para los párrafos de error */
+		.error {
+		    color: red;
+		    font-size: 14px;
+		    text-align: center;
+		    margin-top: 20px; /* Espacio superior */
+		}
+
+		/* Estilo para los elementos de la página de usuario */
+		h2 {
+		    font-size: 30px; /* Tamaño más grande para el subtítulo */
+		    color: #fff; /* Texto en blanco */
+		    font-weight: bold; /* Negrita */
+		    margin-top: 20px; /* Espacio superior */
+		}
+
+		strong {
+		    color: #ffeb3b; /* Color dorado para los elementos destacados */
+		}
+	</style>	
 	</head>
+	
 <body>
 	<div class="container">
 	       <h1>Bienvenido a tu primera pagina JSP!</h1>

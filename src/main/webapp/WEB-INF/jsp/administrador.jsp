@@ -32,6 +32,7 @@
         h2 {
             color: black;
             font-weight: bold;
+			font-size:30px;
         }
 
         /* Estilo para el nombre de usuario */

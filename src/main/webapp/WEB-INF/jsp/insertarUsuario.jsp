@@ -112,7 +112,7 @@
             <input type="text" id="phone" name="phone" required>
 
             <label for="age">Edad:</label>
-            <input type="number" id="age" name="age" required>
+            <input type="number" id="age" name="age" required min="0">
 
             <label for="gender">Genero:</label>
             <select id="gender" name="gender" required>
