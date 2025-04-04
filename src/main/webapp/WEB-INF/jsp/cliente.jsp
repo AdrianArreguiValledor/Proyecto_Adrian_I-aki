@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +25,10 @@
 
 		/* Contenedor principal */
 		.container {
-		    max-width: 1000px; /* El contenedor tiene un ancho máximo de 1000px */
-		    margin: 0 auto; /* Centra el contenedor en la página */
-		    background-color: #fff; /* Establece el fondo blanco para el contenedor */
+		    width: 400%; /* El contenedor ocupará el 100% del ancho de la ventana de visualización */
+		    margin: 0; /* Elimina cualquier margen que pueda haber */
 		    padding: 30px; /* Añade 30px de espacio interno */
+		    background-color: #fff; /* Fondo blanco para el contenedor */
 		    border-radius: 8px; /* Bordes redondeados con un radio de 8px */
 		    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
 		    opacity: 0; /* Inicialmente el contenedor es transparente */
