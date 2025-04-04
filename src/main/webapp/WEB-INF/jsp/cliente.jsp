@@ -199,44 +199,130 @@
             <button type="submit" class="insert-button">Insertar Cliente</button>
         </form>
 
-        <c:choose>
-            <c:when test="${not empty usuarios}">
-                <table>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Email</th>
-                        <th>Teléfono</th>
-                        <th>Edad</th>
-                        <th>Género</th>
-                        <th>Rol</th>
-                        <th>Acciones</th>
-                    </tr>
-                    <c:forEach var="user" items="${usuarios}">
-                        <tr>
-                            <td>${user.firstName}</td>
-                            <td>${user.lastName}</td>
-                            <td>${user.email}</td>
-                            <td>${user.phone}</td>
-                            <td>${user.age}</td>
-                            <td>${user.gender}</td>
-                            <td>${user.role}</td>
-                            <td>
-                                <div class="button-container">
-                                    <a href="editar/${user.id}">
-                                        <button class="edit-button">Editar</button>
-                                    </a>
-                                    <button class="delete-button" onclick="confirmarBorrado(${user.id})">Borrar</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-            </c:when>
-            <c:otherwise>
-                <p>No hay clientes registrados.</p>
-            </c:otherwise>
-        </c:choose>
+		<c:choose>
+		    <c:when test="${not empty usuarios}">
+		        <table>
+		            <tr>
+		                <th>Nombre</th>
+		                <th>Apellido</th>
+		                <th>Apellido de soltera</th>
+		                <th>Edad</th>
+		                <th>Género</th>
+		                <th>Email</th>
+		                <th>Teléfono</th>
+		                <th>Nombre de usuario</th>
+		                <th>Contraseña</th>
+		                <th>Fecha de nacimiento</th>
+		                <th>Imagen</th>
+		                <th>Grupo sanguíneo</th>
+		                <th>Altura</th>
+		                <th>Peso</th>
+		                <th>Color de ojos</th>
+		                <th>Color de cabello</th>
+		                <th>Tipo de cabello</th>
+		                <th>Dirección</th>
+		                <th>Ciudad</th>
+		                <th>Estado</th>
+		                <th>Código del estado</th>
+		                <th>Código postal</th>
+		                <th>Latitud</th>
+		                <th>Longitud</th>
+		                <th>País</th>
+		                <th>Dirección MAC</th>
+		                <th>Universidad</th>
+		                <th>Fecha de caducidad tarjeta bancaria</th>
+		                <th>Número de tarjeta bancaria</th>
+		                <th>Tipo de tarjeta bancaria</th>
+		                <th>Moneda bancaria</th>
+		                <th>IBAN bancario</th>
+		                <th>Departamento de la empresa</th>
+		                <th>Nombre de la empresa</th>
+		                <th>Título de la empresa</th>
+		                <th>Dirección de la empresa</th>
+		                <th>Ciudad de la empresa</th>
+		                <th>Estado de la empresa</th>
+		                <th>Código del estado de la empresa</th>
+		                <th>Código postal de la empresa</th>
+		                <th>Latitud de la empresa</th>
+		                <th>Longitud de la empresa</th>
+		                <th>País de la empresa</th>
+		                <th>Ein</th>
+		                <th>SSN</th>
+		                <th>Usuario agente</th>
+		                <th>Moneda criptográfica</th>
+		                <th>Billetera criptográfica</th>
+		                <th>Red criptográfica</th>
+		                <th>Rol</th>
+		                <th>Acciones</th>
+		            </tr>
+		            <c:forEach var="user" items="${usuarios}">
+		                <tr>
+		                    <td>${user.firstName}</td>
+		                    <td>${user.lastName}</td>
+		                    <td>${user.maidenName}</td>
+		                    <td>${user.age}</td>
+		                    <td>${user.gender}</td>
+		                    <td>${user.email}</td>
+		                    <td>${user.phone}</td>
+		                    <td>${user.username}</td>
+		                    <td>${user.password}</td>
+		                    <td>${user.birthDate}</td>
+		                    <td>${user.image}</td>
+		                    <td>${user.bloodGroup}</td>
+		                    <td>${user.height}</td>
+		                    <td>${user.weight}</td>
+		                    <td>${user.eyeColor}</td>
+		                    <td>${user.hairColor}</td>
+		                    <td>${user.hairType}</td>
+		                    <td>${user.address}</td>
+		                    <td>${user.city}</td>
+		                    <td>${user.state}</td>
+		                    <td>${user.stateCode}</td>
+		                    <td>${user.postalCode}</td>
+		                    <td>${user.lat}</td>
+		                    <td>${user.lng}</td>
+		                    <td>${user.country}</td>
+		                    <td>${user.macAddress}</td>
+		                    <td>${user.university}</td>
+		                    <td>${user.bankCardExpire}</td>
+		                    <td>${user.bankCardNumber}</td>
+		                    <td>${user.bankCardType}</td>
+		                    <td>${user.bankCurrency}</td>
+		                    <td>${user.bankIban}</td>
+		                    <td>${user.companyDepartment}</td>
+		                    <td>${user.companyName}</td>
+		                    <td>${user.companyTitle}</td>
+		                    <td>${user.companyAddress}</td>
+		                    <td>${user.companyCity}</td>
+		                    <td>${user.companyState}</td>
+		                    <td>${user.companyStateCode}</td>
+		                    <td>${user.companyPostalCode}</td>
+		                    <td>${user.companyLat}</td>
+		                    <td>${user.companyLng}</td>
+		                    <td>${user.companyCountry}</td>
+		                    <td>${user.ein}</td>
+		                    <td>${user.ssn}</td>
+		                    <td>${user.userAgent}</td>
+		                    <td>${user.cryptoCoin}</td>
+		                    <td>${user.cryptoWallet}</td>
+		                    <td>${user.cryptoNetwork}</td>
+		                    <td>${user.role}</td>
+		                    <td>
+		                        <div class="button-container">
+		                            <a href="editar/${user.id}">
+		                                <button class="edit-button">Editar</button>
+		                            </a>
+		                            <button class="delete-button" onclick="confirmarBorrado(${user.id})">Borrar</button>
+		                        </div>
+		                    </td>
+		                </tr>
+		            </c:forEach>
+		        </table>
+		    </c:when>
+		    <c:otherwise>
+		        <p>No hay clientes registrados.</p>
+		    </c:otherwise>
+		</c:choose>
 
         <!-- Botón de volver -->
         <form action="/administrador" method="get">

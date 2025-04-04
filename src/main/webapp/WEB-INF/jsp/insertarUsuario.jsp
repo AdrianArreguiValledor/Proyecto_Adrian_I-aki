@@ -5,7 +5,7 @@
 <head>
     <title>Insertar Usuario</title>
     <style>
-		/* Estilo general de la página */
+		    /* Estilo general de la página */
 		    body {
 		        font-family: 'Poppins', sans-serif; /* Fuente de texto */
 		        background: linear-gradient(to right, #004080, #66ccff); /* Fondo de gradiente, de azul oscuro a azul claro */
@@ -25,7 +25,7 @@
 		        border-radius: 12px; /* Bordes redondeados */
 		        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Sombra ligera */
 		        width: 50%; /* Ancho al 50% */
-		        max-width: 500px; /* Máximo ancho de 500px */
+		        max-width: 800px; /* Máximo ancho de 800px */
 		        text-align: center; /* Centra el texto */
 		        opacity: 0; /* Inicialmente invisible */
 		        animation: slideIn 0.8s forwards 0.5s; /* Animación de deslizamiento para el formulario */
@@ -165,39 +165,247 @@
 		        }
 		    }
 
-    </style>
+		    /* Estilo para la sección de Tabs (pestañas) */
+		    .tab {
+		        display: none;
+		    }
+
+		    .tab-header {
+		        display: flex;
+		        justify-content: space-around;
+		        margin-bottom: 20px;
+		        cursor: pointer;
+		        padding: 10px;
+		        background-color: #f1f1f1;
+		        border-radius: 5px 5px 0 0;
+		    }
+
+		    .tab-header div {
+		        padding: 10px;
+		        background-color: #ddd;
+		        border-radius: 5px;
+		        margin: 0 5px;
+		        transition: background-color 0.3s;
+		    }
+
+		    .tab-header div:hover {
+		        background-color: #ccc;
+		    }
+
+		    .tab-content {
+		        display: flex;
+		        flex-direction: column;
+		    }
+
+		    .tab-button {
+		        padding: 10px;
+		        cursor: pointer;
+		        transition: background-color 0.3s ease;
+		    }
+
+		    .tab-button:hover {
+		        background-color: #ddd;
+		    }
+
+		    .active {
+		        background-color: #4CAF50;
+		        color: white;
+		    }
+
+		</style>
+		
+		<script>
+		    // Esta función cambiará entre las pestañas
+		    function openTab(tabIndex) {
+		        // Obtener todas las pestañas
+		        var tabs = document.querySelectorAll('.tab');
+		        var tabButtons = document.querySelectorAll('.tab-button');
+
+		        // Ocultar todas las pestañas
+		        tabs.forEach(function(tab, index) {
+		            tab.style.display = 'none';
+		            tabButtons[index].classList.remove('active');
+		        });
+
+		        // Mostrar la pestaña seleccionada
+		        tabs[tabIndex].style.display = 'block';
+		        tabButtons[tabIndex].classList.add('active');
+		    }
+		</script>
+		
 </head>
 <body>
     <div class="form-container">
         <h1>Insertar Nuevo Usuario</h1>
         <form action="/guardar" method="post">
-            <label for="firstName">Nombre:</label>
-            <input type="text" id="firstName" name="firstName" required>
+			<div class="tab-header">
+			               <div onclick="openTab(0)" class="tab-button active">Información Personal</div>
+			               <div onclick="openTab(1)" class="tab-button">Datos de Contacto</div>
+			               <div onclick="openTab(2)" class="tab-button">Información de la Empresa</div>
+			           </div>
 
-            <label for="lastName">Apellido:</label>
-            <input type="text" id="lastName" name="lastName" required>
+			           <!-- Sección 1: Información Personal -->
+			           <div class="tab" style="display:block;">
+			               <div class="tab-content">
+							<label for="username">Nombre de Usuario:</label>
+							<input type="text" id="username" name="username" value="${usuario.username}">
+			                  
+							 <label for="firstName">Primer Nombre:</label>
+			                   <input type="text" id="firstName" name="firstName" value="${usuario.firstName}">
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+			                   <label for="lastName">Apellido:</label>
+			                   <input type="text" id="lastName" name="lastName" value="${usuario.lastName}">
 
-            <label for="phone">Telefono:</label>
-            <input type="text" id="phone" name="phone" required>
+			                   <label for="maidenName">Apellido de Soltera:</label>
+			                   <input type="text" id="maidenName" name="maidenName" value="${usuario.maidenName}">
 
-            <label for="age">Edad:</label>
-            <input type="number" id="age" name="age" required min="0">
+			                   <label for="age">Edad:</label>
+			                   <input type="number" id="age" name="age" value="${usuario.age}">
 
-            <label for="gender">Genero:</label>
-            <select id="gender" name="gender" required>
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-                <option value="Otro">Otro</option>
-            </select>
+			                   <label for="gender">Género:</label>
+			                   <input type="text" id="gender" name="gender" value="${usuario.gender}">
 
-            <label for="role">Rol:</label>
-            <select id="role" name="role" required>
-                <option value="Admin">Admin</option>
-                <option value="Usuario">Usuario</option>
-            </select>
+			                   <label for="birthDate">Fecha de Nacimiento:</label>
+			                   <input type="date" id="birthDate" name="birthDate" value="${usuario.birthDate}">
+
+			                   <label for="bloodGroup">Grupo Sanguíneo:</label>
+			                   <input type="text" id="bloodGroup" name="bloodGroup" value="${usuario.bloodGroup}">
+
+			                   <label for="height">Altura (m):</label>
+			                   <input type="number" step="0.01" id="height" name="height" value="${usuario.height}">
+
+			                   <label for="weight">Peso (kg):</label>
+			                   <input type="number" step="0.01" id="weight" name="weight" value="${usuario.weight}">
+
+			                   <label for="eyeColor">Color de Ojos:</label>
+			                   <input type="text" id="eyeColor" name="eyeColor" value="${usuario.eyeColor}">
+
+			                   <label for="hairColor">Color de Cabello:</label>
+			                   <input type="text" id="hairColor" name="hairColor" value="${usuario.hairColor}">
+
+							<label for="userAgent">Agente de Usuario:</label>
+							<input type="text" id="userAgent" name="userAgent" value="${usuario.userAgent}">
+									
+			                   <label for="hairType">Tipo de Cabello:</label>
+			                   <input type="text" id="hairType" name="hairType" value="${usuario.hairType}">
+
+			                   <label for="image">Imagen:</label>
+			                   <input type="text" id="image" name="image" value="${usuario.image}">
+
+			                   <label for="macAddress">Dirección MAC:</label>
+			                   <input type="text" id="macAddress" name="macAddress" value="${usuario.macAddress}">
+
+			                   <label for="university">Universidad:</label>
+			                   <input type="text" id="university" name="university" value="${usuario.university}">
+
+							<!-- Campo para 'ssn' (Número de Seguro Social) -->
+							<label for="ssn">Número de Seguro Social:</label>
+							<input type="text" id="ssn" name="ssn" value="${usuario.ssn}">
+								   
+			                   <label for="role">Rol:</label>
+			                   <input type="text" id="role" name="role" value="${usuario.role}">
+			               </div>
+			           </div>
+
+			           <!-- Sección 2: Datos de Contacto -->
+			           <div class="tab">
+			               <div class="tab-content">
+			                   <label for="email">Correo Electrónico:</label>
+			                   <input type="email" id="email" name="email" value="${usuario.email}">
+
+							<label for="password">Contraseña:</label>
+							<input type="password" id="password" name="password" value="${usuario.password}">
+			                 
+							  <label for="phone">Teléfono:</label>
+			                   <input type="tel" id="phone" name="phone" value="${usuario.phone}">
+
+			                   <label for="address">Dirección:</label>
+			                   <input type="text" id="address" name="address" value="${usuario.address}">
+
+			                   <label for="city">Ciudad:</label>
+			                   <input type="text" id="city" name="city" value="${usuario.city}">
+
+			                   <label for="state">Estado:</label>
+			                   <input type="text" id="state" name="state" value="${usuario.state}">
+
+			                   <label for="stateCode">Código del Estado:</label>
+			                   <input type="text" id="stateCode" name="stateCode" value="${usuario.stateCode}">
+
+			                   <label for="postalCode">Código Postal:</label>
+			                   <input type="text" id="postalCode" name="postalCode" value="${usuario.postalCode}">
+
+			                   <label for="lat">Latitud:</label>
+			                   <input type="number" step="0.000001" id="lat" name="lat" value="${usuario.lat}">
+
+			                   <label for="lng">Longitud:</label>
+			                   <input type="number" step="0.000001" id="lng" name="lng" value="${usuario.lng}">
+
+			                   <label for="country">País:</label>
+			                   <input type="text" id="country" name="country" value="${usuario.country}">
+			               </div>
+			           </div>
+
+			           <!-- Sección 3: Información de la Empresa -->
+			           <div class="tab">
+			               <div class="tab-content">
+			                   <label for="companyName">Nombre de la Empresa:</label>
+			                   <input type="text" id="companyName" name="companyName" value="${usuario.companyName}">
+
+			                   <label for="companyAddress">Dirección de la Empresa:</label>
+			                   <input type="text" id="companyAddress" name="companyAddress" value="${usuario.companyAddress}">
+
+			                   <label for="companyCity">Ciudad de la Empresa:</label>
+			                   <input type="text" id="companyCity" name="companyCity" value="${usuario.companyCity}">
+
+			                   <label for="companyState">Estado de la Empresa:</label>
+			                   <input type="text" id="companyState" name="companyState" value="${usuario.companyState}">
+
+			                   <label for="companyStateCode">Código del Estado de la Empresa:</label>
+			                   <input type="text" id="companyStateCode" name="companyStateCode" value="${usuario.companyStateCode}">
+
+			                   <label for="companyPostalCode">Código Postal de la Empresa:</label>
+			                   <input type="text" id="companyPostalCode" name="companyPostalCode" value="${usuario.companyPostalCode}">
+
+			                   <label for="companyLat">Latitud de la Empresa:</label>
+			                   <input type="number" step="0.000001" id="companyLat" name="companyLat" value="${usuario.companyLat}">
+
+			                   <label for="companyLng">Longitud de la Empresa:</label>
+			                   <input type="number" step="0.000001" id="companyLng" name="companyLng" value="${usuario.companyLng}">
+
+			                   <label for="companyCountry">País de la Empresa:</label>
+			                   <input type="text" id="companyCountry" name="companyCountry" value="${usuario.companyCountry}">
+
+			                   <label for="companyDepartment">Departamento de la Empresa:</label>
+			                   <input type="text" id="companyDepartment" name="companyDepartment" value="${usuario.companyDepartment}">
+
+			                   <label for="companyTitle">Título en la Empresa:</label>
+			                   <input type="text" id="companyTitle" name="companyTitle" value="${usuario.companyTitle}">
+
+			                   <label for="ein">Número de Identificación del Empleador (EIN):</label>
+			                   <input type="text" id="ein" name="ein" value="${usuario.ein}">
+
+			                   <label for="bankCardNumber">Número de Tarjeta Bancaria:</label>
+			                   <input type="text" id="bankCardNumber" name="bankCardNumber" value="${usuario.bankCardNumber}">
+
+			                   <label for="bankCardType">Tipo de Tarjeta Bancaria:</label>
+			                   <input type="text" id="bankCardType" name="bankCardType" value="${usuario.bankCardType}">
+
+			                   <label for="bankCurrency">Moneda del Banco:</label>
+			                   <input type="text" id="bankCurrency" name="bankCurrency" value="${usuario.bankCurrency}">
+
+			                   <label for="bankIban">IBAN del Banco:</label>
+			                   <input type="text" id="bankIban" name="bankIban" value="${usuario.bankIban}">
+
+			                   <label for="cryptoCoin">Moneda Cripto:</label>
+			                   <input type="text" id="cryptoCoin" name="cryptoCoin" value="${usuario.cryptoCoin}">
+
+			                   <label for="cryptoWallet">Cartera Cripto:</label>
+			                   <input type="text" id="cryptoWallet" name="cryptoWallet" value="${usuario.cryptoWallet}">
+
+			                   <label for="cryptoNetwork">Red Cripto:</label>
+			                   <input type="text" id="cryptoNetwork" name="cryptoNetwork" value="${usuario.cryptoNetwork}">
+			               </div>
+			           </div>
             <br><br>
             <button type="submit">Guardar Usuario</button>
             <br><br>
