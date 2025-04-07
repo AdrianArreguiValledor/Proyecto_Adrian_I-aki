@@ -3,6 +3,9 @@ package com.formacion.service;
 import com.formacion.entities.ApiUserResponse;
 import com.formacion.entities.User;
 import com.formacion.repository.User2Repository;
+
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -22,6 +25,15 @@ public class ApiService {
        
             String url = "https://dummyjson.com/users/1"; // URL de la API
 
+            
+         // Verificar si el usuario ya existe en la base de datos
+            Optional<User> existingUser = user2Repository.findByfirstName("Emily"); // Usando "username" como ejemplo
+            if (existingUser.isPresent()) {
+                // Si el usuario ya existe, no hacer nada
+                return;
+            }
+            
+            
             // Realizar la llamada a la API y obtener los datos
             ApiUserResponse apiUserResponse = webClient.get()
                     .uri(url)
