@@ -248,7 +248,10 @@
                     <br><br>
 
                     <label for="gender">Genero:</label>
-                    <input type="text" id="gender" name="gender" value="${usuario.gender}">
+					<select id="gender" name="gender">
+						<option value="Masculino" ${usuario.gender == 'Masculino' ? 'selected' : ''}>Masculino</option>
+						<option value="Femenino" ${usuario.gender == 'Femenino' ? 'selected' : ''}>Femenino</option>
+					</select>
                     <br><br>
 
                     <label for="birthDate">Fecha de Nacimiento:</label>
@@ -256,7 +259,16 @@
                     <br><br>
 
                     <label for="bloodGroup">Grupo Sanguíneo:</label>
-                    <input type="text" id="bloodGroup" name="bloodGroup" value="${usuario.bloodGroup}">
+					<select id="bloodGroup" name="bloodGroup">
+						<option value="A+" ${usuario.bloodGroup == 'A+' ? 'selected' : ''}>A+</option>
+						<option value="A-" ${usuario.bloodGroup == 'A-' ? 'selected' : ''}>A-</option>
+						<option value="B+" ${usuario.bloodGroup == 'B+' ? 'selected' : ''}>B+</option>
+						<option value="B-" ${usuario.bloodGroup == 'B-' ? 'selected' : ''}>B-</option>
+						<option value="O+" ${usuario.bloodGroup == 'O+' ? 'selected' : ''}>O+</option>
+						<option value="O-" ${usuario.bloodGroup == 'O-' ? 'selected' : ''}>O-</option>
+						<option value="AB+" ${usuario.bloodGroup == 'AB+' ? 'selected' : ''}>AB+</option>
+						<option value="AB-" ${usuario.bloodGroup == 'AB-' ? 'selected' : ''}>AB-</option>
+					</select>
                     <br><br>
 
                     <label for="height">Altura (m):</label>
@@ -280,7 +292,13 @@
                     <br><br>
 
                     <label for="hairType">Tipo de Cabello:</label>
-                    <input type="text" id="hairType" name="hairType" value="${usuario.hairType}">
+					<select id="hairType" name="hairType">
+						 <option value="Lacio" ${usuario.hairType == 'Lacio' ? 'selected' : ''}>Lacio</option>
+						 <option value="Rizado" ${usuario.hairType == 'Rizado' ? 'selected' : ''}>Rizado</option>
+						 <option value="Ondulado" ${usuario.hairType == 'Ondulado' ? 'selected' : ''}>Ondulado</option>
+						 <option value="Crespo" ${usuario.hairType == 'Crespo' ? 'selected' : ''}>Crespo</option>
+						 <option value="Otros" ${usuario.hairType == 'Otros' ? 'selected' : ''}>Otros</option>
+					</select>
                     <br><br>
 
                     <label for="image">Imagen:</label>
@@ -300,7 +318,10 @@
                     <br><br>
 
                     <label for="role">Rol:</label>
-                    <input type="text" id="role" name="role" value="${usuario.role}">
+					<select id="role" name="role">
+						<option value="Admin" ${usuario.role == 'Admin' ? 'selected' : ''}>Admin</option>
+						<option value="Usuario" ${usuario.role == 'Usuario' ? 'selected' : ''}>Usuario</option>
+					</select>
                     <br><br>
                 </div>
             </div>

@@ -19,11 +19,7 @@ public class ApiService {
 
     // Este método obtiene los datos de la API y los guarda en la base de datos
     public void fetchAndSaveUserData() {
-        // Verificar si ya existen usuarios en la base de datos
-        long userCount = user2Repository.count(); // Obtiene el número de usuarios en la base de datos
-
-        // Solo obtener y guardar datos de la API si no hay usuarios en la base de datos
-        if (userCount == 0) {
+       
             String url = "https://dummyjson.com/users/1"; // URL de la API
 
             // Realizar la llamada a la API y obtener los datos
@@ -39,8 +35,8 @@ public class ApiService {
             // Guardar el usuario en la base de datos
             user2Repository.save(user);  // Asegúrate de que esto guarda correctamente el objeto User
         }
-    }
-
+    
+    
     // Este método mapea la respuesta de la API a un objeto User
     private User mapApiResponseToUser(ApiUserResponse apiUserResponse) {
         User user = new User();
