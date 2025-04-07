@@ -67,6 +67,9 @@ public class ApiService {
         user.setHeight(apiUserResponse.getHeight());
         user.setWeight(apiUserResponse.getWeight());
         user.setEyeColor(apiUserResponse.getEyeColor());
+        //añadir pelo
+        user.setHairType(apiUserResponse.getHair().getType());
+        user.setHairColor(apiUserResponse.getHair().getColor());
 
         // Mapear los campos de la dirección
         if (apiUserResponse.getAddress() != null) {

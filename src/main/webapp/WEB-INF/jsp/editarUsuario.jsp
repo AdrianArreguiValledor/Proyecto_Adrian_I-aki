@@ -59,7 +59,6 @@
 		        /* Estilo para el botón de Guardar Usuario */
 		        .form-container button {
 		            padding: 12px;
-		            background-color: #28a745;
 		            color: white;
 		            font-size: 16px;
 		            border: none;
@@ -70,7 +69,6 @@
 		        }
 
 		        .form-container button:hover {
-		            background-color: #218838;
 		            transform: scale(1.05);
 		        }
 
@@ -105,6 +103,24 @@
 				    transform: scale(1.05);
 				}
 				
+				.update-button {
+				    padding: 12px;
+				    background-color: #007bff; /* Azul base */
+				    color: white;
+				    font-size: 16px;
+				    border: none;
+				    border-radius: 8px;
+				    cursor: pointer;
+				    transition: background-color 0.3s, transform 0.3s;
+				    width: 100%;
+				}
+
+				.update-button:hover {
+				    background-color: #0056b3; /* Azul más oscuro */
+				    transform: scale(1.05);
+				}
+				
+				
 		        /* Botón de Volver */
 		        .back-button {
 		            display: block;
@@ -112,7 +128,7 @@
 		            padding: 12px;
 		            margin-top: 10px;
 		            text-align: center;
-		            background-color: #007bff;
+		            background-color: green;
 		            color: white;
 		            border-radius: 8px;
 		            text-decoration: none;
@@ -123,7 +139,7 @@
 		        }
 
 		        .back-button:hover {
-		            background-color: #0056b3;
+		            background-color: darkgreen;
 		            transform: scale(1.05);
 		        }
 
@@ -258,7 +274,7 @@
                     <input type="date" id="birthDate" name="birthDate" value="${usuario.birthDate}">
                     <br><br>
 
-                    <label for="bloodGroup">Grupo Sanguíneo:</label>
+                    <label for="bloodGroup">Grupo Sanguineo:</label>
 					<select id="bloodGroup" name="bloodGroup">
 						<option value="A+" ${usuario.bloodGroup == 'A+' ? 'selected' : ''}>A+</option>
 						<option value="A-" ${usuario.bloodGroup == 'A-' ? 'selected' : ''}>A-</option>
@@ -305,7 +321,7 @@
                     <input type="text" id="image" name="image" value="${usuario.image}">
                     <br><br>
 
-                    <label for="macAddress">Dirección MAC:</label>
+                    <label for="macAddress">Direccion MAC:</label>
                     <input type="text" id="macAddress" name="macAddress" value="${usuario.macAddress}">
                     <br><br>
 
@@ -420,7 +436,7 @@
                     <input type="text" id="companyDepartment" name="companyDepartment" value="${usuario.companyDepartment}">
                     <br><br>
 
-                    <label for="companyTitle">Título en la Empresa:</label>
+                    <label for="companyTitle">Titulo en la Empresa:</label>
                     <input type="text" id="companyTitle" name="companyTitle" value="${usuario.companyTitle}">
                     <br><br>
 
@@ -458,7 +474,8 @@
                 </div>
             </div>
 
-            <button type="submit" onclick="return confirmSubmit()">Actualizar Usuario</button>
+			<button type="submit" class="update-button" onclick="return confirmSubmit()">Actualizar Usuario</button>
+
         </form>
 
         <form action="/cliente" method="get">

@@ -181,6 +181,13 @@
 		    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
 		}
 
+		
+		.red-text {
+		    color: red !important;
+		    font-weight: bold;
+		}
+
+		
     </style>
 
     <script>
@@ -258,56 +265,57 @@
 		            </tr>
 		            <c:forEach var="user" items="${usuarios}">
 		                <tr>
-		                    <td>${user.firstName}</td>
-		                    <td>${user.lastName}</td>
-		                    <td>${user.maidenName}</td>
-		                    <td>${user.age}</td>
-		                    <td>${user.gender}</td>
-		                    <td>${user.email}</td>
-		                    <td>${user.phone}</td>
-		                    <td>${user.username}</td>
-		                    <td>${user.password}</td>
-		                    <td>${user.birthDate}</td>
-		                    <td>${user.image}</td>
-		                    <td>${user.bloodGroup}</td>
-		                    <td>${user.height}</td>
-		                    <td>${user.weight}</td>
-		                    <td>${user.eyeColor}</td>
-		                    <td>${user.hairColor}</td>
-		                    <td>${user.hairType}</td>
-		                    <td>${user.address}</td>
-		                    <td>${user.city}</td>
-		                    <td>${user.state}</td>
-		                    <td>${user.stateCode}</td>
-		                    <td>${user.postalCode}</td>
-		                    <td>${user.lat}</td>
-		                    <td>${user.lng}</td>
-		                    <td>${user.country}</td>
-		                    <td>${user.macAddress}</td>
-		                    <td>${user.university}</td>
-		                    <td>${user.bankCardExpire}</td>
-		                    <td>${user.bankCardNumber}</td>
-		                    <td>${user.bankCardType}</td>
-		                    <td>${user.bankCurrency}</td>
-		                    <td>${user.bankIban}</td>
-		                    <td>${user.companyDepartment}</td>
-		                    <td>${user.companyName}</td>
-		                    <td>${user.companyTitle}</td>
-		                    <td>${user.companyAddress}</td>
-		                    <td>${user.companyCity}</td>
-		                    <td>${user.companyState}</td>
-		                    <td>${user.companyStateCode}</td>
-		                    <td>${user.companyPostalCode}</td>
-		                    <td>${user.companyLat}</td>
-		                    <td>${user.companyLng}</td>
-		                    <td>${user.companyCountry}</td>
-		                    <td>${user.ein}</td>
-		                    <td>${user.ssn}</td>
-		                    <td>${user.userAgent}</td>
-		                    <td>${user.cryptoCoin}</td>
-		                    <td>${user.cryptoWallet}</td>
-		                    <td>${user.cryptoNetwork}</td>
-		                    <td>${user.role}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.firstName}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.lastName}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.maidenName}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.age}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.gender}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.email}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.phone}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.username}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.password}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.birthDate}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.image}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bloodGroup}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.height}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.weight}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.eyeColor}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.hairColor}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.hairType}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.address}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.city}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.state}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.stateCode}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.postalCode}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.lat}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.lng}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.country}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.macAddress}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.university}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCardExpire}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCardNumber}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCardType}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCurrency}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankIban}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyDepartment}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyName}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyTitle}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyAddress}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyCity}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyState}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyStateCode}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyPostalCode}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyLat}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyLng}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyCountry}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.ein}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.ssn}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.userAgent}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.cryptoCoin}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.cryptoWallet}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.cryptoNetwork}</td>
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.role}</td>
+
 		                    <td>
 		                        <div class="button-container">
 		                            <a href="editar/${user.id}">
