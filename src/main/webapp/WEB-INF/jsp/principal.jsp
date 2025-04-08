@@ -114,7 +114,33 @@
 		          text-align: center; /* Centra el texto */
 		          margin-top: 20px; /* Espacio superior */
 		      }
+			  
+			  
+			  /* Botones para iniciar y cerrar sesión */
+			 .inicio-btn, .cerrar-btn {
+			  	 background-color: #28a745; /* Verde */
+			  	 color: white; /* Texto blanco */
+			  	 font-size: 16px;
+			  	 padding: 10px 20px;
+			  	 border-radius: 5px;
+			  	 border: none;
+			  	 cursor: pointer;
+			  	 transition: background-color 0.3s ease;
+			 }
 
+			  .inicio-btn:hover, .cerrar-btn:hover {
+			  	 background-color: #218838; /* Fondo más oscuro al pasar el ratón */
+			  }
+						  
+
+			  /* Estilo para el mensaje de bienvenida */
+			  .bienvenido-msg {
+			    font-size: 24px; /* Tamaño de letra más grande */
+			    color: yellow; /* Color de texto amarillo */
+			    font-weight: bold; /* Texto en negrita */
+			    margin-top: 20px; /* Espacio superior */
+			  }
+					  
 		      /* Estilo para los elementos de la pagina de usuario */
 		      h2 {
 		          font-size: 30px; /* Tamaño de fuente */
@@ -177,6 +203,18 @@
 
         <p>Para personalizar el saludo, agrega el parametro <code>?name=TuNombre</code> a la URL.</p>
         <br>
+
+       
+		<!-- Verificación de sesión -->
+		<c:if test="${empty sessionScope.email}">
+		   <p class="bienvenido-msg">No estas autenticado. Por favor, inicia sesion.</p>
+		    <a href="/index"><button class="inicio-btn">Iniciar sesion</button></a>
+	    </c:if>
+
+		<c:if test="${not empty sessionScope.email}">
+		   <p class="bienvenido-msg">Bienvenido, ${sessionScope.email}</p>
+		   <a href="/cerrarSesion"><button class="cerrar-btn">Cerrar sesion</button></a>
+		</c:if>
 
         <c:if test="${sessionScope.rol == 'Administrador'}">
             <form action="/administrador" method="get">
