@@ -4,6 +4,7 @@ import com.formacion.entities.User;
 import com.formacion.repository.User2Repository;
 import com.formacion.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,10 @@ public class ClienteController {
     @Autowired
     private User2Repository user2Repository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder; // Encriptador de contraseñas para la seguridad
+    
+    
     // Mostrar datos de los clientes
     @GetMapping("/cliente")
     public String viewClientes(Model model) {
@@ -46,6 +51,7 @@ public class ClienteController {
     // Guardar usuario
     @PostMapping("/guardar")
     public String guardarUsuario(User usuario) {
+    	usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         user2Repository.save(usuario);  // Guardar el nuevo usuario
         return "redirect:/cliente";  // Redirigir a la vista de clientes
     }
@@ -77,6 +83,7 @@ public class ClienteController {
     @PostMapping("/actualizar/{id}")
     public String actualizarUsuario(@PathVariable("id") Long id, User usuario) {
         usuario.setId(id);  // Asegúrate de que el ID sea correcto
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         user2Repository.save(usuario);  // Actualiza el usuario
         return "redirect:/cliente";  // Redirige a la vista de clientes
     }

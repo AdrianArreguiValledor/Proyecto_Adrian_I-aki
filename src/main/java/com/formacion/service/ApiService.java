@@ -6,6 +6,7 @@ import com.formacion.repository.User2Repository;
 
 import java.util.Optional;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -14,10 +15,12 @@ public class ApiService {
 
     private final WebClient webClient;
     private final User2Repository user2Repository;
-
-    public ApiService(WebClient webClient, User2Repository user2Repository) {
+    private final PasswordEncoder passwordEncoder;
+    
+    public ApiService(WebClient webClient, User2Repository user2Repository,PasswordEncoder passwordEncoder) {
         this.webClient = webClient;
         this.user2Repository = user2Repository;
+		this.passwordEncoder = passwordEncoder;
     }
 
     // Este método obtiene los datos de la API y los guarda en la base de datos
@@ -43,6 +46,9 @@ public class ApiService {
 
             // Convertir la respuesta de la API en un objeto User
             User user = mapApiResponseToUser(apiUserResponse);
+            
+            // Hashear la contraseña 
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             
             // Guardar el usuario en la base de datos
             user2Repository.save(user);  // Asegúrate de que esto guarda correctamente el objeto User

@@ -265,24 +265,63 @@
 		            </tr>
 		            <c:forEach var="user" items="${usuarios}">
 		                <tr>
+							<!-- Nombre -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.firstName}</td>
+							
+							<!-- Apellido -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.lastName}</td>
+							
+							<!-- Nombre de soltera -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.maidenName}</td>
+							
+							<!-- Edad -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.age}</td>
+							
+							<!-- Genero -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.gender}</td>
+							
+							<!-- Email -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.email}</td>
+							
+							<!-- Telefono -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.phone}</td>
+							
+							<!-- Nombre de usuario -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.username}</td>
+							
+							<!-- Contraseña -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.password}</td>
+							
+							<!-- Fecha de nacimiento -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.birthDate}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.image}</td>
+							
+							<!-- Imagen -->
+							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">
+								<img src="${user.image}" alt="Imagen de ${user.firstName}" style="max-width: 50px; max-height: 50px;">
+							</td>
+							
+							<!-- Grupo sanguineo -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bloodGroup}</td>
+							
+							<!-- Altura -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.height}</td>
+							
+							<!-- Ancho -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.weight}</td>
+							
+							<!-- Color de ojos -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.eyeColor}</td>
+							
+							<!-- Color de pelo -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.hairColor}</td>
+							
+							<!-- Tipo de pelo -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.hairType}</td>
+							
+							<!-- Direccion -->
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.address}</td>
+							
+							
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.city}</td>
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.state}</td>
 							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.stateCode}</td>
