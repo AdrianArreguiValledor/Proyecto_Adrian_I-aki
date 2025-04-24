@@ -9,11 +9,18 @@
 		    body {
 		        font-family: Arial, sans-serif; /* Establece la fuente para todo el contenido */
 		        background: linear-gradient(to bottom, #003366, #66ccff); /* Fondo de gradiente, de azul oscuro a azul claro */
+		        background-size: cover; /* Asegura que el fondo ocupe toda la pantalla */
+		        background-attachment: fixed; /* Hace que el fondo no se desplace al hacer scroll */
 		        color: #333; /* Color del texto en gris oscuro */
 		        line-height: 1.6; /* Espaciado entre líneas */
 		        padding: 20px; /* Espaciado alrededor del contenido */
 		        margin: 0; /* Elimina márgenes */
 		        animation: fadeIn 1s ease-in-out; /* Animación para hacer que el contenido aparezca suavemente */
+		        min-height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
+				overflow-y: auto;
+				display: flex; /* Usamos Flexbox para centrar el contenido */
+		        justify-content: center; /* Centra el contenido horizontalmente */
+		        align-items: center; /* Centra el contenido verticalmente */
 		    }
 
 		    /* Animación para hacer que la página aparezca con efecto de desvanecimiento y desplazamiento */
@@ -30,6 +37,7 @@
 
 		    /* Estilo del contenedor principal */
 		    .container {
+		        width: 100%; /* Hace que el contenedor ocupe el 100% del ancho disponible */
 		        max-width: 600px; /* Ancho máximo de 600px */
 		        margin: 0 auto; /* Centra el contenedor horizontalmente */
 		        background-color: #fff; /* Fondo blanco para el contenedor */
@@ -70,6 +78,7 @@
 
 		    /* Estilo de las etiquetas */
 		    label {
+				font-weight:bold;
 		        font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor para las etiquetas */
 		    }
 
@@ -135,6 +144,53 @@
 		        border-radius: 5px; /* Bordes redondeados */
 		        margin-bottom: 20px; /* Espacio debajo del mensaje */
 		        text-align: center; /* Centra el texto de la alerta */
+		    }
+
+		    /* Media Queries para hacer el diseño responsivo */
+		    @media screen and (max-width: 768px) {
+		        body {
+		            padding: 10px; /* Reduce el espaciado en pantallas más pequeñas */
+		        }
+
+		        .container {
+		            width: 90%; /* El contenedor ocupa el 90% del ancho en pantallas más pequeñas */
+		            padding: 20px; /* Reduce el espaciado interno */
+		        }
+
+		        h2 {
+		            font-size: 1.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
+		        }
+
+		        label {
+		            font-size: 1rem; /* Reduce el tamaño de la fuente de las etiquetas */
+		        }
+
+		        input, select {
+		            font-size: 0.9rem; /* Reduce el tamaño de la fuente de los campos */
+		        }
+
+		        button {
+		            font-size: 0.9rem; /* Reduce el tamaño de la fuente del botón */
+		        }
+		    }
+
+		    /* Media Queries para pantallas muy pequeñas (móviles) */
+		    @media screen and (max-width: 480px) {
+		        h2 {
+		            font-size: 1.2rem; /* Reduce aún más el tamaño del título */
+		        }
+
+		        label {
+		            font-size: 0.9rem; /* Reduce aún más el tamaño de la fuente de las etiquetas */
+		        }
+
+		        input, select {
+		            font-size: 0.85rem; /* Reduce aún más el tamaño de la fuente de los campos */
+		        }
+
+		        button {
+		            font-size: 0.85rem; /* Reduce aún más el tamaño de la fuente del botón */
+		        }
 		    }
     </style>
 </head>

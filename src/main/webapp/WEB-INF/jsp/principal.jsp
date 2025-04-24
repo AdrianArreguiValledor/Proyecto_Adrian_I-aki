@@ -6,184 +6,234 @@
     <title>Pagina JSP Sencilla</title>
     <style>
 		/* Estilos generales */
-		      body {
-		          font-family: Arial, sans-serif; /* Fuente de texto */
-		          background: linear-gradient(to bottom, #003366, #66ccff); /* De azul oscuro a azul claro */
-		          margin: 0; /* Elimina márgenes */
-		          padding: 0; /* Elimina relleno */
-		          display: flex; /* Usa Flexbox para organizar los elementos */
-		          flex-direction: column; /* Coloca los elementos en columna */
-		          align-items: center; /* Centra el contenido horizontalmente */
-		          justify-content: center; /* Centra el contenido verticalmente */
-		          height: 100vh; /* Hace que el body ocupe toda la altura de la ventana */
-		          text-align: center; /* Centra el texto */
-		          animation: fadeIn 1s ease-out; /* Animación de desvanecimiento */
-		      }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #003366, #66ccff); /* De azul oscuro a azul claro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+			overflow-y: auto;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
 
-		      /* Contenedor principal */
-		      .container {
-		          background-color: rgb(85, 85, 85); /* Fondo gris oscuro */
-		          color: #fff; /* Texto blanco */
-		          padding: 40px; /* Relleno interno */
-		          border-radius: 10px; /* Bordes redondeados */
-		          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra ligera */
-		          transition: background-color 0.3s ease; /* Transición suave del color de fondo */
-		          max-width: 800px; /* Máximo ancho de 800px */
-		          margin: auto; /* Centra el contenedor */
-		          opacity: 0; /* Inicialmente invisible */
-		          animation: slideIn 1s forwards; /* Animación de deslizamiento */
-		      }
+        /* Contenedor principal */
+        .container {
+            background-color: rgb(85, 85, 85);
+            color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+            max-width: 800px;
+            margin: auto;
+            opacity: 0;
+            animation: slideIn 1s forwards;
+        }
 
-		      /* Efecto al pasar el ratón por encima */
-		      .container:hover {
-		          background-color: #333; /* Fondo más oscuro al pasar el ratón */
-		      }
+        /* Efecto al pasar el ratón por encima */
+        .container:hover {
+            background-color: #333;
+        }
 
-		      /* Titulo principal */
-		      h1 {
-		          font-weight: bold; /* Negrita */
-		          color: #fff; /* Texto blanco */
-		          margin-top: 0; /* Elimina el margen superior */
-		          padding-top: 20px; /* Relleno superior */
-		          font-size: 35px; /* Tamaño de fuente */
-		      }
+        /* Titulo principal */
+        h1 {
+            font-weight: bold;
+            color: #fff;
+            margin-top: 0;
+            padding-top: 20px;
+            font-size: 35px;
+        }
 
-		      /* Estilo para los mensajes */
-		      p {
-		          font-weight: normal; /* Texto normal */
-		          color: #fff; /* Texto blanco */
-		      }
+        /* Estilo para los mensajes */
+        p {
+            font-weight: normal;
+            color: #fff;
+        }
 
-		      /* Estilo para los botones */
-		      button {
-		          padding: 10px 20px; /* Relleno interno */
-		          font-size: 16px; /* Tamaño de fuente */
-		          font-weight: bold; /* Negrita */
-		          border-radius: 5px; /* Bordes redondeados */
-		          cursor: pointer; /* Cambia el cursor cuando pasa sobre el botón */
-		          border: none; /* Sin borde */
-		          margin-top: 20px; /* Espacio superior */
-		          transition: transform 0.3s ease, background-color 0.3s ease; /* Efecto de transición */
-		      }
+        /* Estilo para los botones */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
 
-		      button:hover {
-		          transform: scale(1.1); /* Aumenta un 10% el tamaño al pasar el ratón */
-		      }
+        button:hover {
+            transform: scale(1.1);
+        }
 
-		      .volver-btn {
-		          background-color: #007BFF; /* Fondo azul */
-		          color: white; /* Texto blanco */
-		      }
+        .volver-btn {
+            background-color: #007BFF;
+            color: white;
+        }
 
-		      .volver-btn:hover {
-		          background-color: #0056b3; /* Fondo más oscuro al pasar el ratón */
-		      }
+        .volver-btn:hover {
+            background-color: #0056b3;
+        }
 
-		      .administrador-btn {
-		          background-color: red; /* Fondo rojo */
-		          color: white; /* Texto blanco */
-		      }
+        .administrador-btn {
+            background-color: red;
+            color: white;
+        }
 
-		      .administrador-btn:hover {
-		          background-color: rgb(193, 2, 46); /* Fondo más oscuro al pasar el ratón */
-		      }
+        .administrador-btn:hover {
+            background-color: rgb(193, 2, 46);
+        }
 
-		      /* Estilo para el contenedor con scroll */
-		      .scroll-container {
-		          overflow-y: scroll; /* Activa el desplazamiento vertical */
-		          height: 400px; /* Altura máxima de 400px */
-		          padding: 10px; /* Relleno interno */
-		          border: 1px solid #ddd; /* Borde gris claro */
-		          background-color: red; /* Fondo rojo */
-		          margin-top: 20px; /* Espacio superior */
-		          color: #333; /* Color de texto gris oscuro */
-		          max-width: 95%; /* Máximo ancho del 95% */
-		          animation: scrollIn 1s ease-out; /* Animación de deslizamiento */
-		          transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
-		      }
+        /* Estilo para el contenedor con scroll */
+        .scroll-container {
+            overflow-y: scroll;
+            height: 400px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: red;
+            margin-top: 20px;
+            color: #333;
+            max-width: 95%;
+            animation: scrollIn 1s ease-out;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-		      .scroll-container:hover {
-		          transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
-		          background-color: darkred; /* Fondo más oscuro al pasar el ratón */
-		      }
+        .scroll-container:hover {
+            transform: scale(1.05);
+            background-color: darkred;
+        }
 
-		      /* Estilo para los párrafos de error */
-		      .error {
-		          color: red; /* Color rojo */
-		          font-size: 14px; /* Tamaño de fuente */
-		          text-align: center; /* Centra el texto */
-		          margin-top: 20px; /* Espacio superior */
-		      }
-			  
-			  
-			  /* Botones para iniciar y cerrar sesión */
-			 .inicio-btn, .cerrar-btn {
-			  	 background-color: #28a745; /* Verde */
-			  	 color: white; /* Texto blanco */
-			  	 font-size: 16px;
-			  	 padding: 10px 20px;
-			  	 border-radius: 5px;
-			  	 border: none;
-			  	 cursor: pointer;
-			  	 transition: background-color 0.3s ease;
-			 }
+        /* Estilo para los párrafos de error */
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-			  .inicio-btn:hover, .cerrar-btn:hover {
-			  	 background-color: #218838; /* Fondo más oscuro al pasar el ratón */
-			  }
-						  
+        /* Botones para iniciar y cerrar sesión */
+        .inicio-btn, .cerrar-btn {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-			  /* Estilo para el mensaje de bienvenida */
-			  .bienvenido-msg {
-			    font-size: 24px; /* Tamaño de letra más grande */
-			    color: yellow; /* Color de texto amarillo */
-			    font-weight: bold; /* Texto en negrita */
-			    margin-top: 20px; /* Espacio superior */
-			  }
-					  
-		      /* Estilo para los elementos de la pagina de usuario */
-		      h2 {
-		          font-size: 30px; /* Tamaño de fuente */
-		          color: #fff; /* Texto blanco */
-		          font-weight: bold; /* Negrita */
-		          margin-top: 20px; /* Espacio superior */
-		      }
+        .inicio-btn:hover, .cerrar-btn:hover {
+            background-color: #218838;
+        }
 
-		      strong {
-		          color: #ffeb3b; /* Color amarillo */
-		      }
+        /* Estilo para el mensaje de bienvenida */
+        .bienvenido-msg {
+            font-size: 24px;
+            color: yellow;
+            font-weight: bold;
+            margin-top: 20px;
+        }
 
-		      /* Animaciones */
-		      @keyframes slideIn {
-		          from {
-		              opacity: 0; /* Comienza invisible */
-		              transform: translateY(-20px); /* Desplazado hacia arriba */
-		          }
-		          to {
-		              opacity: 1; /* Totalmente visible */
-		              transform: translateY(0); /* Regresa a su posición original */
-		          }
-		      }
+        /* Estilo para los elementos de la pagina de usuario */
+        h2 {
+            font-size: 30px;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 20px;
+        }
 
-		      @keyframes fadeIn {
-		          from {
-		              opacity: 0; /* Comienza invisible */
-		          }
-		          to {
-		              opacity: 1; /* Totalmente visible */
-		          }
-		      }
+        strong {
+            color: #ffeb3b;
+        }
 
-		      @keyframes scrollIn {
-		          from {
-		              opacity: 0; /* Comienza invisible */
-		              transform: translateY(20px); /* Desplazado hacia abajo */
-		          }
-		          to {
-		              opacity: 1; /* Totalmente visible */
-		              transform: translateY(0); /* Regresa a su posición original */
-		          }
-		      }
+        /* Animaciones */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scrollIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries para dispositivos móviles y tablets */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px; /* Reducir tamaño de fuente para pantallas más pequeñas */
+            }
+
+            .container {
+                padding: 20px; /* Reducir el padding */
+                width: 90%; /* Asegurar que el contenedor no se salga de la pantalla */
+                max-width: 95%;
+            }
+
+            h1 {
+                font-size: 28px; /* Reducir el tamaño del título */
+            }
+
+            button {
+                font-size: 14px; /* Reducir el tamaño del botón */
+                padding: 8px 16px; /* Reducir el padding del botón */
+            }
+
+            .scroll-container {
+                height: 250px; /* Reducir altura del contenedor con scroll */
+                font-size: 14px; /* Reducir tamaño de fuente en contenedor scroll */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px; /* Reducir aún más el tamaño del título */
+            }
+
+            .bienvenido-msg {
+                font-size: 20px; /* Reducir tamaño del mensaje de bienvenida */
+            }
+
+            .scroll-container {
+                height: 200px; /* Reducir aún más la altura del contenedor con scroll */
+                font-size: 12px; /* Reducir el tamaño de fuente en dispositivos más pequeños */
+            }
+
+            button {
+                font-size: 12px; /* Reducir el tamaño de los botones */
+                padding: 6px 12px; /* Reducir el padding de los botones */
+            }
+
+            .container {
+                padding: 15px; /* Ajustar el padding del contenedor */
+            }
+        }
     </style>
 </head>
 <body>
@@ -204,17 +254,16 @@
         <p>Para personalizar el saludo, agrega el parametro <code>?name=TuNombre</code> a la URL.</p>
         <br>
 
-       
-		<!-- Verificación de sesión -->
-		<c:if test="${empty sessionScope.email}">
-		   <p class="bienvenido-msg">No estas autenticado. Por favor, inicia sesion.</p>
-		    <a href="/index"><button class="inicio-btn">Iniciar sesion</button></a>
-	    </c:if>
+        <!-- Verificación de sesión -->
+        <c:if test="${empty sessionScope.email}">
+            <p class="bienvenido-msg">No estas autenticado. Por favor, inicia sesion.</p>
+            <a href="/index"><button class="inicio-btn">Iniciar sesion</button></a>
+        </c:if>
 
-		<c:if test="${not empty sessionScope.email}">
-		   <p class="bienvenido-msg">Bienvenido, ${sessionScope.email}</p>
-		   <a href="/cerrarSesion"><button class="cerrar-btn">Cerrar sesion</button></a>
-		</c:if>
+        <c:if test="${not empty sessionScope.email}">
+            <p class="bienvenido-msg">Bienvenido, ${sessionScope.email}</p>
+            <a href="/cerrarSesion"><button class="cerrar-btn">Cerrar sesion</button></a>
+        </c:if>
 
         <c:if test="${sessionScope.rol == 'Administrador'}">
             <form action="/administrador" method="get">
@@ -255,13 +304,10 @@
     </div>
 
     <script>
-        // Añadir interactividad al cargar la pagina
         window.onload = function() {
-            // Efecto de animacion al cargar la pagina
             const container = document.querySelector('.container');
             container.style.animation = 'slideIn 1s forwards';
 
-            // Mostrar mensaje de bienvenida con nombre si esta presente
             const nameParam = new URLSearchParams(window.location.search).get('name');
             if (nameParam) {
                 document.querySelector('h1').textContent = `Bienvenido, ${nameParam}!`;

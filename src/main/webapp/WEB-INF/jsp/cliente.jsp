@@ -6,188 +6,281 @@
 <head>
     <title>Lista de Clientes</title>
     <style>
-		/* Reset global */
-		* {
-		    margin: 0; /* Elimina el margen predeterminado de todos los elementos */
-		    padding: 0; /* Elimina el relleno predeterminado de todos los elementos */
-		    box-sizing: border-box; /* Define el modelo de caja para todos los elementos, asegurando que el padding y el borde no afecten al ancho y alto de los elementos */
-		}
-
-		/* Fondo general */
 		body {
-		    font-family: Arial, sans-serif; /* Establece la fuente para todo el cuerpo */
-		    background: linear-gradient(to bottom, #003366, #66ccff); /* Fondo degradado de color azul oscuro a azul claro */
-		    color: #333; /* Establece un color de texto gris oscuro */
-		    line-height: 1.6; /* Aumenta el interlineado para mejorar la legibilidad */
-		    padding: 20px; /* Añade un espacio de 20px alrededor del contenido del body */
-		    animation: fadeIn 1s ease-out; /* Aplica la animación fadeIn cuando la página se carga */
+		    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		    background: linear-gradient(to bottom, #003366, #66ccff);
+		    margin: 0;
+		    padding: 0;
+		    min-height: 100vh;
+		    background-size: cover;
+		    background-position: center;
 		}
 
-		/* Contenedor principal */
 		.container {
-		    width: 400%; /* El contenedor ocupará el 100% del ancho de la ventana de visualización */
-		    margin: 0; /* Elimina cualquier margen que pueda haber */
-		    padding: 30px; /* Añade 30px de espacio interno */
-		    background-color: #fff; /* Fondo blanco para el contenedor */
-		    border-radius: 8px; /* Bordes redondeados con un radio de 8px */
-		    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
-		    opacity: 0; /* Inicialmente el contenedor es transparente */
-		    animation: slideIn 1s ease-out forwards; /* Aplica la animación slideIn para que el contenedor aparezca deslizándose */
+		    max-width: 1400px;
+		    margin: 0 auto;
 		}
 
-		/* Título */
 		h2 {
-		    font-size: 2rem; /* Tamaño de fuente grande para el título */
-		    color: #333; /* Color de texto gris oscuro */
-		    text-align: center; /* Centra el título */
-		    margin-bottom: 20px; /* Añade un espacio debajo del título */
-		    border-bottom: 2px solid #4CAF50; /* Agrega una línea de 2px verde debajo del título */
-		    padding-bottom: 10px; /* Añade un pequeño relleno debajo de la línea */
+		    text-align: center;
+		    font-size: 2.5rem;
+		    margin-bottom: 30px;
+		    color: white;
 		}
 
-		/* Animación de FadeIn */
-		@keyframes fadeIn {
-		    from {
-		        opacity: 0; /* Al principio, la opacidad es 0 */
-		    }
-		    to {
-		        opacity: 1; /* Al final, la opacidad es 1 */
-		    }
+		.insert-button{
+		    background-color: yellow;
+		    color: black;
+		    border: none;
+		    border-radius: 8px;
+		    padding: 15px 26px;
+		    font-size: 1rem;
+		    font-weight: bold;
+		    cursor: pointer;
+		    display: block;
+		    margin: 20px auto;
+		    transition: all 0.3s ease;
 		}
 
-		/* Animación de SlideIn */
-		@keyframes slideIn {
-		    from {
-		        opacity: 0; /* Comienza con opacidad 0 */
-		        transform: translateY(20px); /* Comienza desplazado 20px hacia abajo */
-		    }
-		    to {
-		        opacity: 1; /* Termina con opacidad 1 */
-		        transform: translateY(0); /* Termina en su posición original */
-		    }
+		.btn-volver {
+				    background-color: green;
+				    color: white;
+				    border: none;
+				    border-radius: 8px;
+				    padding: 15px 26px;
+				    font-size: 1rem;
+				    font-weight: bold;
+				    cursor: pointer;
+				    display: block;
+				    margin: 20px auto;
+				    transition: all 0.3s ease;
+				}
+				
+		.insert-button:hover {
+		    background-color:#B8860B ;
+		    transform: scale(1.05);
+		}
+		
+		
+		.btn-volver:hover {
+				    background-color: darkgreen;
+				    transform: scale(1.05);
+				}
+
+		.user-card {
+		    background-color: white;
+		    border-radius: 16px;
+		    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		    margin-bottom: 30px;
+		    padding: 20px;
+		    transition: all 0.3s ease;
 		}
 
-		/* Animación para la tabla */
-		@keyframes tableFadeIn {
-		    from {
-		        opacity: 0; /* Comienza con opacidad 0 */
-		    }
-		    to {
-		        opacity: 1; /* Termina con opacidad 1 */
-		    }
+		.user-card:hover {
+		    transform: translateY(-5px);
 		}
 
-		/* Tabla de clientes */
-		table {
-		    width: 100%; /* La tabla ocupa todo el ancho del contenedor */
-		    border-collapse: collapse; /* Elimina los espacios entre las celdas de la tabla */
-		    margin-bottom: 20px; /* Añade un margen de 20px debajo de la tabla */
-		    animation: tableFadeIn 1s ease-out; /* Aplica la animación de fade-in a la tabla */
+		.user-header {
+		    display: flex;
+		    align-items: center;
+		    gap: 20px;
+		    margin-bottom: 20px;
+		    border-bottom: 1px solid #ddd;
+		    padding-bottom: 10px;
 		}
 
-		/* Estilo para las celdas de la tabla */
-		table th, table td {
-		    padding: 12px; /* Añade un relleno de 12px dentro de las celdas */
-		    text-align: left; /* Alinea el texto de las celdas a la izquierda */
-		    border-bottom: 1px solid #ddd; /* Agrega una línea gris de 1px debajo de cada celda */
+		.user-header img {
+		    width: 80px;
+		    height: 80px;
+		    object-fit: cover;
+		    border-radius: 50%;
+		    border: 2px solid #ccc;
 		}
 
-		/* Estilo para los encabezados de la tabla */
-		table th {
-		    background-color: #4CAF50; /* Fondo verde para los encabezados */
-		    color: white; /* Color de texto blanco */
-		    font-weight: bold; /* Pone los encabezados en negrita */
+		.user-header h3 {
+		    margin: 0;
+		    font-size: 1.5rem;
+		    color: #34495e;
 		}
 
-		/* Estilo para las celdas de la tabla */
-		table td {
-		    background-color: #f9f9f9; /* Fondo gris claro para las celdas */
+		.user-info {
+		    display: grid;
+		    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		    gap: 14px;
+		    margin-top: 20px;
 		}
 
-		/* Filas de la tabla de colores alternados */
-		table tr:nth-child(even) td {
-		    background-color: #f1f1f1; /* Fondo ligeramente más oscuro para las filas pares */
+		.user-info div {
+		    background: #ffffff;
+		    border: 1px solid #e0e6ed;
+		    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+		    padding: 14px 18px;
+		    border-radius: 10px;
+		    display: flex;
+		    flex-direction: column;
+		    transition: box-shadow 0.3s ease;
+		    overflow-x: auto;
 		}
 
-		/* Botones */
+		.user-info div:hover {
+		    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+		}
+
+		.user-info div span {
+		    white-space: nowrap;
+		    width: max-content;
+		    max-width: 100%;
+		    overflow: visible;
+		    text-overflow: unset;
+		    display: inline-block;
+		}
+
+		.user-info div span:first-child {
+		    font-weight: 600;
+		    color: #2c3e50;
+		    margin-bottom: 5px;
+		    font-size: 0.87rem;
+		    text-transform: uppercase;
+		    letter-spacing: 0.5px;
+		}
+
+		.user-info div span:last-child {
+		    color: #34495e;
+		    font-size: 1rem;
+		}
+
 		.button-container {
-		    display: flex; /* Utiliza flexbox para alinear los botones en fila */
-		    gap: 10px; /* Añade un espacio de 10px entre los botones */
+		    margin-top: 20px;
+		    display: flex;
+		    gap: 15px;
+		    justify-content: flex-end;
 		}
 
-		/* Estilo para los botones de editar */
-		.edit-button, .delete-button, .insert-button, .btn-volver {
-		    border: none; /* Elimina el borde de los botones */
-		    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el botón */
-		    border-radius: 5px; /* Bordes redondeados con un radio de 5px */
-		    font-size: 1rem; /* Establece un tamaño de fuente de 1 rem */
-		    padding: 10px 20px; /* Añade 10px de relleno en la parte superior e inferior, 20px a los lados */
-		    font-weight: bold; /* Pone el texto en negrita */
-		    text-align: center; /* Centra el texto en el botón */
-		    display: inline-block; /* Asegura que los botones se muestren en línea */
-		    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave para los cambios de fondo y la escala */
+		.edit-button, .delete-button {
+		    padding: 20px 30px;
+		    font-size: 1.5rem;
+		    border: none;
+		    border-radius: 6px;
+		    font-weight: bold;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
 		}
 
-		/* Estilo para el botón de editar */
 		.edit-button {
-		    background-color: #4CAF50; /* Fondo verde para el botón de editar */
-		    color: white; /* Color de texto blanco */
+		    background-color: #2ecc71;
+		    color: white;
 		}
 
 		.edit-button:hover {
-		    background-color: #45a049; /* Fondo más oscuro al pasar el ratón */
-		    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+		    background-color: #27ae60;
 		}
 
-		/* Estilo para el botón de borrar */
 		.delete-button {
-		    background-color: #f44336; /* Fondo rojo para el botón de borrar */
-		    color: white; /* Color de texto blanco */
+		    background-color: #e74c3c;
+		    color: white;
 		}
 
 		.delete-button:hover {
-		    background-color: #c62828; /* Fondo más oscuro al pasar el ratón */
-		    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+		    background-color: #c0392b;
 		}
 
-		/* Estilo para el botón de insertar */
-		.insert-button {
-		    background-color: #233dff; /* Fondo azul para el botón de insertar */
-		    color: white; /* Color de texto blanco */
-		    margin-bottom: 20px; /* Añade un margen en la parte inferior */
-		    display: block; /* Hace que el botón ocupe todo el ancho disponible */
-		    width: fit-content; /* Ajusta el ancho al contenido del botón */
-		    margin-left: auto; /* Centra el botón en el contenedor */
-		    margin-right: auto; /* Centra el botón en el contenedor */
-		}
-
-		.insert-button:hover {
-		    background-color: darkblue; /* Fondo más oscuro al pasar el ratón */
-		    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
-		}
-
-		/* Estilo para el botón de volver */
-		.btn-volver {
-		    background-color: #007BFF; /* Fondo azul para el botón de volver */
-		    color: white; /* Color de texto blanco */
-		    display: block; /* Hace que el botón ocupe todo el ancho disponible */
-		    width: fit-content; /* Ajusta el ancho al contenido del botón */
-		    margin-left: auto; /* Centra el botón en el contenedor */
-		    margin-right: auto; /* Centra el botón en el contenedor */
-		}
-
-		.btn-volver:hover {
-		    background-color: darkblue; /* Fondo más oscuro al pasar el ratón */
-		    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
-		}
-
-		
-		.red-text {
+		.red-text h3 {
 		    color: red !important;
-		    font-weight: bold;
 		}
 
-		
+		/* Media Queries para hacerlo responsivo */
+		@media (max-width: 1024px) {
+		    .user-info {
+		        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		    }
+
+		    .user-header h3 {
+		        font-size: 1.2rem;
+		    }
+
+		    .user-card {
+		        padding: 15px;
+		    }
+
+		    .insert-button, .btn-volver {
+		        font-size: 0.9rem;
+		        padding: 12px 20px;
+		    }
+
+		    .button-container {
+		        flex-direction: column;
+		        align-items: flex-end;
+		    }
+
+		    .edit-button, .delete-button {
+		        font-size: 1.2rem;
+		        padding: 10px 20px;
+		        margin-bottom: 10px;
+		    }
+		}
+
+		@media (max-width: 768px) {
+		    .user-header {
+		        flex-direction: column;
+		        align-items: flex-start;
+		    }
+
+		    .user-header img {
+		        width: 60px;
+		        height: 60px;
+		    }
+
+		    .user-header h3 {
+		        font-size: 1.2rem;
+		    }
+
+		    .user-info {
+		        grid-template-columns: 1fr;
+		    }
+
+		    .insert-button, .btn-volver {
+		        font-size: 1rem;
+		        padding: 12px 24px;
+		    }
+
+		    .button-container {
+		        flex-direction: column;
+		        align-items: flex-start;
+		    }
+
+		    .edit-button, .delete-button {
+		        font-size: 1.2rem;
+		        padding: 10px 20px;
+		        margin-bottom: 10px;
+		    }
+		}
+
+		@media (max-width: 480px) {
+		    h2 {
+		        font-size: 1.8rem;
+		    }
+
+		    .user-info {
+		        grid-template-columns: 1fr;
+		    }
+
+		    .insert-button, .btn-volver {
+		        font-size: 1rem;
+		        padding: 10px 20px;
+		    }
+
+		    .button-container {
+		        flex-direction: column;
+		        align-items: flex-start;
+		    }
+
+		    .edit-button, .delete-button {
+		        font-size: 1.2rem;
+		        padding: 10px 20px;
+		        margin-bottom: 10px;
+		    }
+		}
+
     </style>
 
     <script>
@@ -199,183 +292,63 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <h2>Lista de Clientes</h2>
+<div class="container">
+    <h2>Lista de Clientes</h2>
 
-        <!-- Botón Insertar Cliente -->
-        <form action="/insertar" method="get">
-            <button type="submit" class="insert-button">Insertar Cliente</button>
-        </form>
+    <form action="/insertar" method="get">
+        <button type="submit" class="insert-button">Insertar Cliente</button>
+    </form>
 
-		<c:choose>
-		    <c:when test="${not empty usuarios}">
-		        <table>
-		            <tr>
-		                <th>Nombre</th>
-		                <th>Apellido</th>
-		                <th>Apellido de soltera</th>
-		                <th>Edad</th>
-		                <th>Género</th>
-		                <th>Email</th>
-		                <th>Teléfono</th>
-		                <th>Nombre de usuario</th>
-		                <th>Contraseña</th>
-		                <th>Fecha de nacimiento</th>
-		                <th>Imagen</th>
-		                <th>Grupo sanguíneo</th>
-		                <th>Altura</th>
-		                <th>Peso</th>
-		                <th>Color de ojos</th>
-		                <th>Color de cabello</th>
-		                <th>Tipo de cabello</th>
-		                <th>Dirección</th>
-		                <th>Ciudad</th>
-		                <th>Estado</th>
-		                <th>Código del estado</th>
-		                <th>Código postal</th>
-		                <th>Latitud</th>
-		                <th>Longitud</th>
-		                <th>País</th>
-		                <th>Dirección MAC</th>
-		                <th>Universidad</th>
-		                <th>Fecha de caducidad tarjeta bancaria</th>
-		                <th>Número de tarjeta bancaria</th>
-		                <th>Tipo de tarjeta bancaria</th>
-		                <th>Moneda bancaria</th>
-		                <th>IBAN bancario</th>
-		                <th>Departamento de la empresa</th>
-		                <th>Nombre de la empresa</th>
-		                <th>Título de la empresa</th>
-		                <th>Dirección de la empresa</th>
-		                <th>Ciudad de la empresa</th>
-		                <th>Estado de la empresa</th>
-		                <th>Código del estado de la empresa</th>
-		                <th>Código postal de la empresa</th>
-		                <th>Latitud de la empresa</th>
-		                <th>Longitud de la empresa</th>
-		                <th>País de la empresa</th>
-		                <th>Ein</th>
-		                <th>SSN</th>
-		                <th>Usuario agente</th>
-		                <th>Moneda criptográfica</th>
-		                <th>Billetera criptográfica</th>
-		                <th>Red criptográfica</th>
-		                <th>Rol</th>
-		                <th>Acciones</th>
-		            </tr>
-		            <c:forEach var="user" items="${usuarios}">
-		                <tr>
-							<!-- Nombre -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.firstName}</td>
-							
-							<!-- Apellido -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.lastName}</td>
-							
-							<!-- Nombre de soltera -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.maidenName}</td>
-							
-							<!-- Edad -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.age}</td>
-							
-							<!-- Genero -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.gender}</td>
-							
-							<!-- Email -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.email}</td>
-							
-							<!-- Telefono -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.phone}</td>
-							
-							<!-- Nombre de usuario -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.username}</td>
-							
-							<!-- Contraseña -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.password}</td>
-							
-							<!-- Fecha de nacimiento -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.birthDate}</td>
-							
-							<!-- Imagen -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">
-								<img src="${user.image}" alt="Imagen de ${user.firstName}" style="max-width: 50px; max-height: 50px;">
-							</td>
-							
-							<!-- Grupo sanguineo -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bloodGroup}</td>
-							
-							<!-- Altura -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.height}</td>
-							
-							<!-- Ancho -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.weight}</td>
-							
-							<!-- Color de ojos -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.eyeColor}</td>
-							
-							<!-- Color de pelo -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.hairColor}</td>
-							
-							<!-- Tipo de pelo -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.hairType}</td>
-							
-							<!-- Direccion -->
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.address}</td>
-							
-							
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.city}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.state}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.stateCode}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.postalCode}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.lat}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.lng}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.country}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.macAddress}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.university}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCardExpire}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCardNumber}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCardType}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankCurrency}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.bankIban}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyDepartment}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyName}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyTitle}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyAddress}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyCity}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyState}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyStateCode}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyPostalCode}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyLat}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyLng}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.companyCountry}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.ein}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.ssn}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.userAgent}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.cryptoCoin}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.cryptoWallet}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.cryptoNetwork}</td>
-							<td class="${user.firstName == 'Emily' ? 'red-text' : ''}">${user.role}</td>
+    <c:choose>
+        <c:when test="${not empty usuarios}">
+            <c:forEach var="user" items="${usuarios}">
+                <div class="user-card ${user.firstName == 'Emily' ? 'red-text' : ''}">
+                    <div class="user-header">
+                        <img src="${user.image}" alt="Foto de ${user.firstName}">
+                        <h3>${user.firstName} ${user.lastName}</h3>
+                    </div>
 
-		                    <td>
-		                        <div class="button-container">
-		                            <a href="editar/${user.id}">
-		                                <button class="edit-button">Editar</button>
-		                            </a>
-		                            <button class="delete-button" onclick="confirmarBorrado(${user.id})">Borrar</button>
-		                        </div>
-		                    </td>
-		                </tr>
-		            </c:forEach>
-		        </table>
-		    </c:when>
-		    <c:otherwise>
-		        <p>No hay clientes registrados.</p>
-		    </c:otherwise>
-		</c:choose>
+                    <div class="user-info">
+                        <div><span>Email:</span><span>${user.email}</span></div>
+                        <div><span>Teléfono:</span><span>${user.phone}</span></div>
+                        <div><span>Edad:</span><span>${user.age}</span></div>
+                        <div><span>Género:</span><span>${user.gender}</span></div>
+                        <div><span>Usuario:</span><span>${user.username}</span></div>
+                        <div><span>Contraseña:</span><span>${user.password}</span></div>
+                        <div><span>Nacimiento:</span><span>${user.birthDate}</span></div>
+                        <div><span>Grupo Sanguíneo:</span><span>${user.bloodGroup}</span></div>
+                        <div><span>Altura:</span><span>${user.height} cm</span></div>
+                        <div><span>Peso:</span><span>${user.weight} kg</span></div>
+                        <div><span>Color de ojos:</span><span>${user.eyeColor}</span></div>
+                        <div><span>Cabello:</span><span>${user.hairColor} (${user.hairType})</span></div>
+                        <div><span>Dirección:</span><span>${user.address}, ${user.city}</span></div>
+                        <div><span>Estado:</span><span>${user.state} (${user.stateCode})</span></div>
+                        <div><span>País:</span><span>${user.country}</span></div>
+                        <div><span>Postal:</span><span>${user.postalCode}</span></div>
+                        <div><span>MAC:</span><span>${user.macAddress}</span></div>
+                        <div><span>Universidad:</span><span>${user.university}</span></div>
+                        <div><span>Cripto:</span><span>${user.cryptoCoin} (${user.cryptoNetwork})</span></div>
+                        <div><span>Wallet:</span><span>${user.cryptoWallet}</span></div>
+                        <div><span>Empresa:</span><span>${user.companyName} - ${user.companyTitle}</span></div>
+                        <div><span>Departamento:</span><span>${user.companyDepartment}</span></div>
+                        <div><span>Dirección empresa:</span><span>${user.companyAddress}, ${user.companyCity}</span></div>
+                    </div>
 
-        <!-- Botón de volver -->
-        <form action="/administrador" method="get">
-            <button type="submit" class="btn-volver">Volver Atras</button>
-        </form>
-    </div>
+                    <div class="button-container">
+                        <a href="editar/${user.id}"><button class="edit-button">Editar</button></a>
+                        <button class="delete-button" onclick="confirmarBorrado(${user.id})">Borrar</button>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <p style="text-align: center;">No hay clientes registrados.</p>
+        </c:otherwise>
+    </c:choose>
+
+    <form action="/administrador" method="get">
+        <button type="submit" class="btn-volver">Volver Atrás</button>
+    </form>
+</div>
 </body>
 </html>

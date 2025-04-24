@@ -4,6 +4,9 @@
 <html>
 <head>
     <title>Insertar Usuario</title>
+    <!-- Meta tag para hacer la página responsiva -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <style>
         /* Estilo general de la página */
         body {
@@ -19,11 +22,10 @@
             overflow: hidden; /* Evita que aparezca scroll en la ventana */
         }
 
-		label{
-			font-weight:bold;
-		}
-		
-		
+        label{
+            font-weight: bold;
+        }
+
         /* Contenedor del formulario */
         .form-container {
             background: white;
@@ -74,37 +76,37 @@
             transform: scale(1.05);
         }
 
-		/* Estilo para los botones de las pestañas */
-		.tab-header {
-		    display: flex;
-		    justify-content: space-evenly;
-		    margin-bottom: 20px;
-		    border-bottom: 2px solid #ccc;
-		}
+        /* Estilo para los botones de las pestañas */
+        .tab-header {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
 
-		.tab-button {
-		    padding: 12px 24px;
-		    cursor: pointer;
-		    font-size: 16px;
-		    font-weight: bold;
-		    color: #333;
-		    background-color: #f2f2f2;
-		    border: 1px solid #ddd;
-		    border-radius: 8px;
-		    transition: background-color 0.3s, transform 0.3s;
-		}
+        .tab-button {
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-		.tab-button.active {
-		    background-color: #004080;
-		    color: white;
-		    transform: scale(1.05);
-		}
+        .tab-button.active {
+            background-color: #004080;
+            color: white;
+            transform: scale(1.05);
+        }
 
-		.tab-button:hover {
-		    background-color: #e6e6e6;
-		    transform: scale(1.05);
-		}
-		
+        .tab-button:hover {
+            background-color: #e6e6e6;
+            transform: scale(1.05);
+        }
+
         /* Botón de Volver */
         .back-button {
             display: block;
@@ -174,6 +176,26 @@
 
             .back-button {
                 font-size: 14px; /* Reducir el tamaño del botón */
+            }
+        }
+        
+        /* Media query para pantallas muy pequeñas (móviles) */
+        @media screen and (max-width: 480px) {
+            .form-container {
+                padding: 10px;
+            }
+
+            .tab-header {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+
+            .tab-button.active {
+                transform: none;
             }
         }
     </style>
