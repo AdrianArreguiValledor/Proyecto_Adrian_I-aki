@@ -74,6 +74,10 @@ public class User {
     private String role;
 
     
+ // Método para obtener la URL de la imagen en función del nombre
+    public String getImageUrl() {
+        return "https://dummyjson.com/icon/" + username.toLowerCase() + "/128"; // Asegúrate de que el nombre sea en minúsculas
+    }
     
     
 	public Long getId() {

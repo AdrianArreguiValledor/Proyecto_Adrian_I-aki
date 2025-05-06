@@ -6,281 +6,279 @@
 <head>
     <title>Lista de Clientes</title>
     <style>
-		body {
-		    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		    background: linear-gradient(to bottom, #003366, #66ccff);
-		    margin: 0;
-		    padding: 0;
-		    min-height: 100vh;
-		    background-size: cover;
-		    background-position: center;
-		}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #003366, #66ccff);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
 
-		.container {
-		    max-width: 1400px;
-		    margin: 0 auto;
-		}
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-		h2 {
-		    text-align: center;
-		    font-size: 2.5rem;
-		    margin-bottom: 30px;
-		    color: white;
-		}
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: white;
+        }
 
-		.insert-button{
-		    background-color: yellow;
-		    color: black;
-		    border: none;
-		    border-radius: 8px;
-		    padding: 15px 26px;
-		    font-size: 1rem;
-		    font-weight: bold;
-		    cursor: pointer;
-		    display: block;
-		    margin: 20px auto;
-		    transition: all 0.3s ease;
-		}
+        .insert-button {
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 26px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
 
-		.btn-volver {
-				    background-color: green;
-				    color: white;
-				    border: none;
-				    border-radius: 8px;
-				    padding: 15px 26px;
-				    font-size: 1rem;
-				    font-weight: bold;
-				    cursor: pointer;
-				    display: block;
-				    margin: 20px auto;
-				    transition: all 0.3s ease;
-				}
-				
-		.insert-button:hover {
-		    background-color:#B8860B ;
-		    transform: scale(1.05);
-		}
-		
-		
-		.btn-volver:hover {
-				    background-color: darkgreen;
-				    transform: scale(1.05);
-				}
+        .btn-volver {
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 26px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
 
-		.user-card {
-		    background-color: white;
-		    border-radius: 16px;
-		    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-		    margin-bottom: 30px;
-		    padding: 20px;
-		    transition: all 0.3s ease;
-		}
+        .insert-button:hover {
+            background-color: #B8860B;
+            transform: scale(1.05);
+        }
 
-		.user-card:hover {
-		    transform: translateY(-5px);
-		}
+        .btn-volver:hover {
+            background-color: darkgreen;
+            transform: scale(1.05);
+        }
 
-		.user-header {
-		    display: flex;
-		    align-items: center;
-		    gap: 20px;
-		    margin-bottom: 20px;
-		    border-bottom: 1px solid #ddd;
-		    padding-bottom: 10px;
-		}
+        .user-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
 
-		.user-header img {
-		    width: 80px;
-		    height: 80px;
-		    object-fit: cover;
-		    border-radius: 50%;
-		    border: 2px solid #ccc;
-		}
+        .user-card:hover {
+            transform: translateY(-5px);
+        }
 
-		.user-header h3 {
-		    margin: 0;
-		    font-size: 1.5rem;
-		    color: #34495e;
-		}
+        .user-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
 
-		.user-info {
-		    display: grid;
-		    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		    gap: 14px;
-		    margin-top: 20px;
-		}
+        .user-header img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
 
-		.user-info div {
-		    background: #ffffff;
-		    border: 1px solid #e0e6ed;
-		    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-		    padding: 14px 18px;
-		    border-radius: 10px;
-		    display: flex;
-		    flex-direction: column;
-		    transition: box-shadow 0.3s ease;
-		    overflow-x: auto;
-		}
+        .user-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #34495e;
+        }
 
-		.user-info div:hover {
-		    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-		}
+        .user-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
 
-		.user-info div span {
-		    white-space: nowrap;
-		    width: max-content;
-		    max-width: 100%;
-		    overflow: visible;
-		    text-overflow: unset;
-		    display: inline-block;
-		}
+        .user-info div {
+            background: #ffffff;
+            border: 1px solid #e0e6ed;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            padding: 14px 18px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.3s ease;
+            overflow-x: auto;
+        }
 
-		.user-info div span:first-child {
-		    font-weight: 600;
-		    color: #2c3e50;
-		    margin-bottom: 5px;
-		    font-size: 0.87rem;
-		    text-transform: uppercase;
-		    letter-spacing: 0.5px;
-		}
+        .user-info div:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
 
-		.user-info div span:last-child {
-		    color: #34495e;
-		    font-size: 1rem;
-		}
+        .user-info div span {
+            white-space: nowrap;
+            width: max-content;
+            max-width: 100%;
+            overflow: visible;
+            text-overflow: unset;
+            display: inline-block;
+        }
 
-		.button-container {
-		    margin-top: 20px;
-		    display: flex;
-		    gap: 15px;
-		    justify-content: flex-end;
-		}
+        .user-info div span:first-child {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 0.87rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-		.edit-button, .delete-button {
-		    padding: 20px 30px;
-		    font-size: 1.5rem;
-		    border: none;
-		    border-radius: 6px;
-		    font-weight: bold;
-		    cursor: pointer;
-		    transition: all 0.3s ease;
-		}
+        .user-info div span:last-child {
+            color: #34495e;
+            font-size: 1rem;
+        }
 
-		.edit-button {
-		    background-color: #2ecc71;
-		    color: white;
-		}
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
 
-		.edit-button:hover {
-		    background-color: #27ae60;
-		}
+        .edit-button, .delete-button {
+            padding: 20px 30px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-		.delete-button {
-		    background-color: #e74c3c;
-		    color: white;
-		}
+        .edit-button {
+            background-color: #2ecc71;
+            color: white;
+        }
 
-		.delete-button:hover {
-		    background-color: #c0392b;
-		}
+        .edit-button:hover {
+            background-color: #27ae60;
+        }
 
-		.red-text h3 {
-		    color: red !important;
-		}
+        .delete-button {
+            background-color: #e74c3c;
+            color: white;
+        }
 
-		/* Media Queries para hacerlo responsivo */
-		@media (max-width: 1024px) {
-		    .user-info {
-		        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		    }
+        .delete-button:hover {
+            background-color: #c0392b;
+        }
 
-		    .user-header h3 {
-		        font-size: 1.2rem;
-		    }
+        .red-text h3 {
+            color: red !important;
+        }
 
-		    .user-card {
-		        padding: 15px;
-		    }
+        /* Media Queries para hacerlo responsivo */
+        @media (max-width: 1024px) {
+            .user-info {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
 
-		    .insert-button, .btn-volver {
-		        font-size: 0.9rem;
-		        padding: 12px 20px;
-		    }
+            .user-header h3 {
+                font-size: 1.2rem;
+            }
 
-		    .button-container {
-		        flex-direction: column;
-		        align-items: flex-end;
-		    }
+            .user-card {
+                padding: 15px;
+            }
 
-		    .edit-button, .delete-button {
-		        font-size: 1.2rem;
-		        padding: 10px 20px;
-		        margin-bottom: 10px;
-		    }
-		}
+            .insert-button, .btn-volver {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+            }
 
-		@media (max-width: 768px) {
-		    .user-header {
-		        flex-direction: column;
-		        align-items: flex-start;
-		    }
+            .button-container {
+                flex-direction: column;
+                align-items: flex-end;
+            }
 
-		    .user-header img {
-		        width: 60px;
-		        height: 60px;
-		    }
+            .edit-button, .delete-button {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                margin-bottom: 10px;
+            }
+        }
 
-		    .user-header h3 {
-		        font-size: 1.2rem;
-		    }
+        @media (max-width: 768px) {
+            .user-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-		    .user-info {
-		        grid-template-columns: 1fr;
-		    }
+            .user-header img {
+                width: 60px;
+                height: 60px;
+            }
 
-		    .insert-button, .btn-volver {
-		        font-size: 1rem;
-		        padding: 12px 24px;
-		    }
+            .user-header h3 {
+                font-size: 1.2rem;
+            }
 
-		    .button-container {
-		        flex-direction: column;
-		        align-items: flex-start;
-		    }
+            .user-info {
+                grid-template-columns: 1fr;
+            }
 
-		    .edit-button, .delete-button {
-		        font-size: 1.2rem;
-		        padding: 10px 20px;
-		        margin-bottom: 10px;
-		    }
-		}
+            .insert-button, .btn-volver {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
 
-		@media (max-width: 480px) {
-		    h2 {
-		        font-size: 1.8rem;
-		    }
+            .button-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-		    .user-info {
-		        grid-template-columns: 1fr;
-		    }
+            .edit-button, .delete-button {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                margin-bottom: 10px;
+            }
+        }
 
-		    .insert-button, .btn-volver {
-		        font-size: 1rem;
-		        padding: 10px 20px;
-		    }
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.8rem;
+            }
 
-		    .button-container {
-		        flex-direction: column;
-		        align-items: flex-start;
-		    }
+            .user-info {
+                grid-template-columns: 1fr;
+            }
 
-		    .edit-button, .delete-button {
-		        font-size: 1.2rem;
-		        padding: 10px 20px;
-		        margin-bottom: 10px;
-		    }
-		}
+            .insert-button, .btn-volver {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
 
+            .button-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .edit-button, .delete-button {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 
     <script>
@@ -304,7 +302,7 @@
             <c:forEach var="user" items="${usuarios}">
                 <div class="user-card ${user.firstName == 'Emily' ? 'red-text' : ''}">
                     <div class="user-header">
-                        <img src="${user.image}" alt="Foto de ${user.firstName}">
+                        <img src="${user.getImageUrl()}" alt="Foto de ${user.firstName}">
                         <h3>${user.firstName} ${user.lastName}</h3>
                     </div>
 
