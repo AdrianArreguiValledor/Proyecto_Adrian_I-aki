@@ -26,6 +26,7 @@ public class ClienteController {
     private PasswordEncoder passwordEncoder; // Encriptador de contraseñas para la seguridad
     
     
+    
     // Mostrar datos de los clientes
     @GetMapping("/cliente")
     public String viewClientes(Model model) {
